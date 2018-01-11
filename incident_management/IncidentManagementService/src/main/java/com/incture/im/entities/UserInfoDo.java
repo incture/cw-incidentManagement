@@ -1,4 +1,4 @@
-package com.incture.entities;
+package com.incture.im.entities;
 
 public class UserInfoDo {
 
