@@ -1,0 +1,13 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:suite="sap.suite.ui.commons" xmlns:l="sap.ui.layout" xmlns="sap.m"
+	xmlns:viz="sap.viz.ui5.controls" xmlns:viz.data="sap.viz.ui5.data" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+	controllerName="com.incture.controller.dashboard" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page showHeader="false">
+		<content>
+			<l:Grid defaultSpan="L6 M8 S12" class="inctureDBGridClass">
+				<l:content>
+					<Text text="Dashboard View"/>
+				</l:content>
+			</l:Grid>
+		</content>
+	</Page>
+</core:View>

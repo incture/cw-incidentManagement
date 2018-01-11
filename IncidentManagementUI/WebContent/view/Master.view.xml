@@ -1,0 +1,52 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="com.incture.controller.Master" xmlns:html="http://www.w3.org/1999/xhtml">
+
+	<!-- This page contains the master list. It contains the following modules. 
+		1. User section: Picture and text. Visible only on small screens and hidden 
+		on bigger screens. 2. The Master Section. 2.1. VBox: Holds all the panels. 
+		2.2 Panels.: They hold the lists. Based on list items, we make the panels 
+		expandable or static. 2.3 The Lists contains the list items. 3. The MasterList 
+		data is coming from init_data.json file and default model. -->
+	<Page class="incMasterPage" showHeader="false">
+		<content>
+			<VBox id='inctureMDMasterVBox' class='inctureMDMasterVBoxClass' items='{oSideNavModel>/masterList}'>
+				<items>
+					<Panel class='inctureMDMasterPanelClass' backgroundDesign='Transparent'
+						expanded='true' expandable='true'>
+						<headerToolbar>
+							<Toolbar id='inctureMDMasterPanel'>
+								<content>
+									<HBox width='2rem' class='InctureMDLMargin1remClass'>
+										<core:Icon height='1rem' src="{oSideNavModel>icon}" />
+									</HBox>
+									<HBox width='80%' justifyContent='SpaceBetween'>
+										<Title text='{oSideNavModel>name}' class="" />
+										<Text
+											text='{path:"subItems", formatter:"incidentManagement.util.formatter.fnMD_DisplayChildCount"}'
+											textAlign='Center' class="" />
+									</HBox>
+									<HBox width='1rem'></HBox>
+								</content>
+							</Toolbar>
+						</headerToolbar>
+						<content>
+							<List items='{oSideNavModel>subItems}' class='inctureMDMasterListClass'
+								mode="SingleSelectMaster" showNoData='false' select='onItemPress'>
+								<items>
+									<CustomListItem type='Active' height='2.5rem'
+										class='inctureMDMasterListItemClass'>
+										<!-- <HBox width='4.5rem' displayInline='true'> </HBox> -->
+										<HBox displayInline='true' height='2.5rem' alignItems="Center"
+											class='InctureMDLMargin4remClass'>
+											<Text text='{oSideNavModel>name}' height='2.5rem' />
+										</HBox>
+									</CustomListItem>
+								</items>
+							</List>
+						</content>
+					</Panel>
+				</items>
+			</VBox>
+		</content>
+	</Page>
+</core:View>

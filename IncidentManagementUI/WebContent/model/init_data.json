@@ -1,0 +1,20 @@
+{
+	"masterList": [{
+		"name": "Dashboard",
+		"key": "Dashboard",
+		"icon": "sap-icon://fa/tachometer"
+	}, 
+	{
+		"name": "Create Request",
+		"key": "Create Request",
+		"icon": "sap-icon://activity-individual"
+		
+	},
+		{
+			"name": "View All Incidents",
+			"key": "View All Incidents",
+			"icon": "sap-icon://activity-individual"
+		}
+	]
+	
+}

@@ -1,0 +1,52 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+    
+    <Dialog  class="daoloo">
+    <customHeader class="header">
+			<Bar>
+				<contentMiddle>
+				
+					<Text text="INCIDENT CREATION SUCCESSFULL" />
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<!-- <footer>
+			<Bar>
+				<contentMiddle>
+					<Text text="@2013-2018 BookmyMovie Resources @Harsha All rights reserved"></Text>
+				</contentMiddle>
+			</Bar>
+		</footer> -->
+    <VBox class="vbox">
+    		<l:Grid defaultSpan="L6 M12 S12">
+   <HBox>
+   <Label text="User Id:"  width="100%" class=""/>
+	<Label text="000001"  width="100%" class=""/>
+   </HBox>
+  
+   
+ 	<HBox>
+	<Label text="Name:" multiple="true" width="100%" class=""/>
+	<HBox>
+	<Label text="KURRU HARSHA "  width="" class=""/>
+	<Label text="VARDHANA"  width="" class=""/></HBox>
+	</HBox>
+	
+		<HBox>
+	<Label text="Line Of Business:" multiple="true" width="100%" class=""/>
+	<HBox>
+	<Label text=""  width="" class=""/>
+	<Label text="VARDHANA"  width="" class=""/></HBox>
+	</HBox>
+	
+ 	</l:Grid>
+   <Button text="OK" press="onloginclose" class="f"/>
+   </VBox>
+   <!-- <beginButton>
+   <Button class="dclose" text="close" press="onloginclose"/>
+   </beginButton> -->
+  </Dialog>
+    </core:FragmentDefinition>

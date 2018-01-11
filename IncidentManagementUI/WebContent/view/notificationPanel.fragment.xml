@@ -1,0 +1,19 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ResponsivePopover id='inctureMDNotifications' 
+		placement="Bottom" 
+		title="{userModel>/displayName}"
+		contentWidth='22rem' contentHeight='20rem'>
+		<content>
+			<List items='{/notifications}' class="inctureMDNotificationClass">
+				<items>
+					<NotificationListItem
+						description='{msg}'
+						datetime='{date}'
+						showButtons ='false'
+						authorPicture="{icon}" />
+				</items>
+			</List>
+		</content>
+	</ResponsivePopover>
+</core:FragmentDefinition>

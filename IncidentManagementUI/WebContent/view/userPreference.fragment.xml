@@ -1,0 +1,38 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ResponsivePopover id='userDialog' 
+		placement="Bottom" showHeader="false"
+		contentWidth='24rem' contentHeight='9.5rem'>
+		<content>
+			<!-- <List>
+				<items>
+					<StandardListItem title="Preference">
+					</StandardListItem>
+					<StandardListItem title="Bookmarks">
+					</StandardListItem>
+					<StandardListItem title="Edit My Details">
+					</StandardListItem>
+					<StandardListItem title="Logout">
+					</StandardListItem>
+				</items>
+			</List> -->
+			<HBox class='inctureMDMargin1remClass'>
+				<items>
+					<HBox>
+						<Image src="./images/Conductor2.png" 
+							class="incMRoundBorderRadiusClass" width="7rem" height="7rem">
+						</Image>
+					</HBox>
+					<HBox width='1rem'></HBox>
+					<VBox>
+						<Label text='{oUserModel>/displayName}' design='Bold'/>
+						<Label text='{oUserModel>/email}' />
+						<Link text='User Settings' press="onUserSettingsPress" />
+						<Button text='Logout' type='Emphasized' press="onLogout"/>
+					</VBox>
+				</items>
+			</HBox>
+		</content>
+		
+	</ResponsivePopover>
+</core:FragmentDefinition>

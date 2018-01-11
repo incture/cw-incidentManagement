@@ -1,0 +1,31 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	controllerName="com.incture.controller.App" xmlns:layout="sap.ui.layout"
+	xmlns="sap.m" xmlns:u="sap.ui.unified" xmlns:html="http://www.w3.org/1999/xhtml">
+	<u:Shell id="idShell" icon="./images/logoCW.png"  class="inctureMDShellClass">
+		<u:headItems>
+			<u:ShellHeadItem id="idHdrMenu" Title="Lorem ipsum" icon="sap-icon://menu2" press="onShowMaster" />
+			
+		</u:headItems>
+		<u:search>
+			<Title text="INCIDENT MANAGEMENT" class="incdnt_title"></Title>
+		<!--	<SearchField class="inctureMDSearchFieldClass"></SearchField>-->
+		</u:search>
+		<u:headEndItems>
+			<!-- <u:ShellHeadItem icon="./images/cart.png" press="handleCart" /> -->
+			<!--<u:ShellHeadItem icon="./images/Bell.png" press="handleNotifications" />-->
+		</u:headEndItems>
+		<u:user>
+			<u:ShellHeadUserItem image="./images/Conductor2.png"
+				press="onUserPress" />
+		</u:user>
+		
+		<u:content>
+			
+				
+			
+			
+			<!-- Split App to hold our pages. -->
+			<SplitApp id='idSplitApp' mode="ShowHideMode" class='inctureMDSplitAppClass' />
+		</u:content>
+	</u:Shell>
+</core:View>

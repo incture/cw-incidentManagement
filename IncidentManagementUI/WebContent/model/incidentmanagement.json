@@ -1,0 +1,67 @@
+{
+	"LOB": [{
+			"title": "Transport",
+			"type": [{
+				"m": "Bus"
+			}, {
+				"m": "Car"
+			}, {
+				"m": "Train"
+			}, {
+				"m": "Areoplane"
+			}, {
+				"m": "Ship"
+			}]
+		}, {
+			"title": "Delivery Unit",
+			"type": [{
+				"m": "Food"
+			}, {
+				"m": "Shopping"
+			}, {
+				"m": "Courier"
+			}, {
+				"m": "Logistics"
+			}]
+		}, {
+			"title": "Plant",
+			"type": [{
+				"m": "Electrical"
+			}, {
+				"m": "Steel"
+			}, {
+				"m": "Petrol"
+			}, {
+				"m": "Oil"
+			}]
+		}, {
+			"title": "Health Care",
+			"type": [{
+				"m": "Hospital"
+			}, {
+				"m": "Homeopathy"
+			}, {
+				"m": "Aurveda"
+			}, {
+				"m": "Pathangali"
+			}]
+		}
+
+	],
+
+	"PRIORITY": [{
+		"priority": "Low",
+		"action": "Maintanance"
+	}, {
+		"priority": "Medium",
+		"action": "Maintanance"
+
+	}, {
+		"priority": "High",
+		"action": "Emergency"
+	}, {
+		"priority": "Critical",
+		"action": "Emergency"
+	}]
+
+}

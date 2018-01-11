@@ -1,0 +1,132 @@
+{
+	"_version": "1.5.0",
+	"sap.app": {
+		"id": "idSplitApp",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDesc}}",
+		"dataSources": {
+			"address_data": {
+				"uri": "./model/addressData.json",
+				"type": "JSON"
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"rootView": "com.incture.view.App",
+		"dependencies": {
+			"minUI5Version": "1.30",
+			"libs": {
+				"sap.m": {},
+				"sap.tnt": {},
+				"sap.ui.unified": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "./css/Style.css"
+				},
+				{
+					"uri": "./css/font-awesome.css"
+				},
+				{
+					"uri": "./css/fonts.css"
+				}
+			]
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/i18n.properties"
+			},
+			"oFetchTokenModel": {
+				"type": "sap.ui.model.json.JSONModel"
+			},
+			"oUserModel": {
+				"type": "sap.ui.model.json.JSONModel"
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "com.incture.view",
+				"controlId": "idSplitApp",
+				"clearControlAggregation": "false"
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "master",
+					"target": [
+						"dashboard",
+						"master"
+					]
+				},
+				{
+					"pattern": "dashboard",
+					"name": "dashboard",
+					"target": [
+						"master",
+						"dashboard"
+					]
+				},
+				{
+					"pattern": "CreateRequest",
+					"name": "CreateRequest",
+					"target": [
+						"master",
+						"CreateRequest"
+					]
+				},
+				{
+					"pattern": "ViewAllIncidents",
+					"name": "ViewAllIncidents",
+					"target": [
+						"master",
+						"ViewAllIncidents"
+					]
+				}
+			],
+			"targets": {
+				"master": {
+					"viewName": "Master",
+					"controlAggregation": "masterPages"
+				},
+				"dashboard": {
+					"viewName": "dashboard",
+					"controlAggregation": "detailPages"
+				},
+				"CreateRequest": {
+					"viewName": "CreateRequest",
+					"controlAggregation": "detailPages"
+				},
+				"ViewAllIncidents": {
+					"viewName": "ViewAllIncidents",
+					"controlAggregation": "detailPages"
+				}
+			}
+		}
+	},
+	"sap.platform.hcp": {
+		"uri": "WebContent",
+		"_version": "1.1.0"
+	}
+}

@@ -1,0 +1,27 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:suite="sap.suite.ui.commons" xmlns:l="sap.ui.layout" xmlns="sap.m"
+	xmlns:viz="sap.viz.ui5.controls" xmlns:viz.data="sap.viz.ui5.data" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+	controllerName="com.incture.controller.ViewAllIncidents" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page showHeader="false">
+		<content>
+				<VBox class="inctureCapexBox">
+					<VBox class="incdnt_table">
+					<Title text=" INCIDENT LIST" class="incdnt_table1" /></VBox >
+		<Table >
+	<columns>
+	<Column><Label text="INCIDENT ID"/></Column>
+	<Column><Label text="LINE OF BUSINESS"/></Column>
+		<Column><Label text="REPORTED BY "/></Column>
+	<Column><Label text="REPORTED ON "/></Column>
+	</columns>
+	<items>
+	<ColumnListItem>
+	<Link text="123" press="onlinkclick"/>
+	<Text text="{oModel>name}"/>
+	<Text text="{oModel>age}"/>
+	</ColumnListItem>
+	</items>
+	</Table>
+				</VBox>
+		</content>
+	</Page>
+</core:View>
