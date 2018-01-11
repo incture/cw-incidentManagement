@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+      <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/imtest</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+        <property name="hbm2ddl.auto">update</property>
+        <property name="show_sql">true</property>
+        
+        
+       <!--  <session-factory>
+		<property name="hibernate.connection.driver_class">com.sap.db.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:sap://localhost:30015/testdb1</property>
+		<property name="hibernate.connection.username">SYSTEM</property>
+		<property name="hibernate.connection.password">Saswat@19951972</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.HANAColumnStoreDialect</property>
+		<property name="show_sql">true</property>
+		<property name="format_sql">true</property>
+		<property name="hbm2ddl.auto">update</property> -->
+		
+		<!-- <mapping class="com.services.UserInfo"/>
+		<mapping class="com.services.IncidentInfo"/>
+		<mapping class="com.services.GroupInfo"/>
+		<mapping class="com.services.RoleInfo"/>
+		<mapping class="com.services.WorkOrder"/> -->
+			</session-factory> 
+        
+    
+</hibernate-configuration>
