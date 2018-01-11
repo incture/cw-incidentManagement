@@ -3,24 +3,26 @@
 	<head>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta http-equiv='Content-Type' content='text/html;charset=UTF-8'/>
-
 		<script src="resources/sap-ui-core.js"
 				id="sap-ui-bootstrap"
-				data-sap-ui-libs="sap.m"
-				data-sap-ui-theme="sap_bluecrystal">
+				data-sap-ui-libs="sap.m, sap.ui.layout, sap.ui.unified, sap.suite.ui.commons"
+				data-sap-ui-xx-bindingSyntax="complex"
+				data-sap-ui-theme="sap_belize"
+				data-sap-ui-resourceroots='{
+					"com.incture":""
+				}'>z
 		</script>
-		<!-- only load the mobile lib "sap.m" and the "sap_bluecrystal" theme -->
-
 		<script>
-				sap.ui.localResources("incidentmanagementui");
-				var app = new sap.m.App({initialPage:"idIncidentCreationView1"});
-				var page = sap.ui.view({id:"idIncidentCreationView1", viewName:"incidentmanagementui.IncidentCreationView", type:sap.ui.core.mvc.ViewType.XML});
-				app.addPage(page);
-				app.placeAt("content");
+			sap.ui.getCore().attachInit(function () {
+				new sap.ui.core.ComponentContainer({
+					name : "com.incture"
+				}).placeAt("content");
+			});
 		</script>
-
+		<script src="./WebContent/util/util.js"></script>
 	</head>
 	<body class="sapUiBody" role="application">
+		<!--<div id="idBusyIndicator" class="inctureLodingIndClass"></div>-->
 		<div id="content"></div>
 	</body>
 </html>
