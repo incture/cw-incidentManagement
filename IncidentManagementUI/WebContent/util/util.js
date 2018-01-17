@@ -41,6 +41,13 @@ function getLoggedInUser(){
 	return user;
 };
 
+//date format
+
+function getMonthName(monthCount) {
+	var month = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sept","Oct","Nov","Dec"];
+	return month[monthCount];
+}
+
 function getJSONData(url,method,oParam){
 	var oHeader={"Content-Type":"application/json; charset=utf-8"};
 	var oModel = new sap.ui.model.json.JSONModel(); 

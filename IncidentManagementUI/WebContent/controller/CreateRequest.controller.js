@@ -473,10 +473,10 @@ sap.ui.define([
 						"createdDate": model.getData().startdate+model.getData().starttime,
 						"finishDate": mod4.getData().finishdt+ mod4.getData().finishtm,
 						"incidentStatus": "OPEN",
-						"reportedDate": mod4.getData().todaydate,
+						"reportedDate": model.getData().todaydate,
 						"assignedGroup": mod4.getData().Assignd_grp,
 						"assignedTo": "Harsha",
-						"assignedDate": mod4.getData().todaydate
+						"assignedDate": model.getData().todaydate
 					},
 					"wo": {
 						"workId": null,

@@ -113,11 +113,11 @@
 					</HBox>
 					<HBox>
 						<Label text="Assign On:" tooltip="" class="inctureUserProfileLblClass3"></Label>
-						<Input value="{model>/todaydate}"  class="inctmang_assdt" width="102%"   />
+						<Input value="{path:'model>/todaydate',formatter:'com.incture.util.formatter.date_display'}"  class="inctmang_assdt" width="102%"   />
 					</HBox>
 					<HBox>
 						<Label text="Reported On:" tooltip="" class="inctureUserProfileLblClass3"></Label>
-						<Input value="{model>/todaydate}"  class="inctmang_report_on"   width="106%"  />
+						<Input value="{path:'model>/todaydate',formatter:'com.incture.util.formatter.date_display'}"  class="inctmang_report_on"   width="106%"  />
 					</HBox>
 					<HBox>
 						<Label text="Basic Start Date:" required="true" tooltip="" class="inctureUserProfileLblClass3" ></Label>

@@ -170,5 +170,19 @@ com.incture.util.formatter = {
 				this.getParent().addStyleClass('green');
 		};
 		
-	}
+	},
+	//date format
+	date_display: function(oDate)  
+		 {
+			var returnValue = "";
+			if (oDate) {
+				var date = oDate.split("T")[0].split("-");
+				var monthCount = date[0];
+				var month = getMonthName(monthCount-1);
+				returnValue = date[1] + " " + month + " " + date[2];
+			}
+			return returnValue;
+		}, 
+ 
+
 };
