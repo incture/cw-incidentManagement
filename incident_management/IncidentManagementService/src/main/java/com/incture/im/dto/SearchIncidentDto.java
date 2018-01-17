@@ -1,7 +1,13 @@
 package com.incture.im.dto;
 
-public class SearchIncidentMasterDto {
+import java.io.Serializable;
 
+public class SearchIncidentDto extends BaseDto implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1090203031984460639L;
 	private String lineOfBusiness;
 	private String priority;
 	private String status;

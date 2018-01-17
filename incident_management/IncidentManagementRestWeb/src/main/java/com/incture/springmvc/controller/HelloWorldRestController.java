@@ -10,14 +10,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.incture.im.dto.ApprovalMasterDto;
-import com.incture.im.dto.CreationMasterDto;
+import com.incture.im.dto.IncidentApprovalDto;
+import com.incture.im.dto.IncidentCreationDto;
 import com.incture.im.dto.IncidentInfoDto;
-import com.incture.im.dto.IncidentTableMasterDto;
-import com.incture.im.dto.SearchIncidentMasterDto;
+import com.incture.im.dto.IncidentTableInfoDto;
+import com.incture.im.dto.ResponseDto;
+import com.incture.im.dto.SearchIncidentDto;
 import com.incture.im.dto.UserInfoDto;
-import com.incture.im.services.IncidentManagementService;
-import com.incture.im.services.IncidentManagementServiceImp;
+import com.incture.im.services.ApproveIncidentService;
+import com.incture.im.services.ApproveIncidentServiceImp;
+import com.incture.im.services.CreateIncidentService;
+import com.incture.im.services.CreateIncidentServiceImp;
+import com.incture.im.services.SearchIncidentService;
+import com.incture.im.services.SearchIncidentServiceImp;
+import com.incture.im.services.SearchUserService;
+import com.incture.im.services.SearchUserServiceImp;
 import com.incture.springmvc.domain.Message;
 
 @RestController
@@ -37,35 +44,32 @@ public class HelloWorldRestController {
 
 	@RequestMapping(value = "/create", method = RequestMethod.POST, consumes = { "application/JSON" })
 
-	public String create(@RequestBody CreationMasterDto create) {
+	public ResponseDto createIncicent(@RequestBody IncidentCreationDto createIncidentDto) {
 
-		IncidentManagementService s1 = new IncidentManagementServiceImp();
+		CreateIncidentService createIncidentService = new CreateIncidentServiceImp();
 
-		return s1.createRecord(create);
+		return createIncidentService.createIncident(createIncidentDto);
 
 	}
 
-	@RequestMapping("/get/{id}")
-	public UserInfoDto getRec(@PathVariable String id) {
+	@RequestMapping("/getuser/{id}")
+	public UserInfoDto getUserInfo(@PathVariable String id) {
 
-		IncidentManagementService s2 = new IncidentManagementServiceImp();
-		UserInfoDto usr;
+		SearchUserService searchUserService = new SearchUserServiceImp();
 
-		usr = s2.getUserById(id);
-
-		return usr;
+		return searchUserService.searchByUserId(id);
 
 	}
 
 	@RequestMapping(value = "/search", method = RequestMethod.POST, produces = "application/json", consumes = "application/json")
 	@ResponseBody
-	public List<IncidentTableMasterDto> getIncident(@RequestBody SearchIncidentMasterDto search) {
+	public List<IncidentTableInfoDto> searchIncident(@RequestBody SearchIncidentDto search) {
 
-		IncidentManagementService s3 = new IncidentManagementServiceImp();
+		SearchIncidentService searchIncidentService = new SearchIncidentServiceImp();
 
-		List<IncidentTableMasterDto> incidents = new ArrayList<IncidentTableMasterDto>();
+		List<IncidentTableInfoDto> incidents = new ArrayList<IncidentTableInfoDto>();
 
-		incidents = s3.getIncidentTableInfo(search);
+		incidents = searchIncidentService.getIncidentTableInfo(search);
 
 		return incidents;
 
@@ -74,45 +78,27 @@ public class HelloWorldRestController {
 	@RequestMapping("/getincident/{id}")
 	public IncidentInfoDto getByIncidentId(@PathVariable String id) {
 
-		IncidentManagementService s4 = new IncidentManagementServiceImp();
-		IncidentInfoDto inid = new IncidentInfoDto();
+		SearchIncidentService searchByIdService = new SearchIncidentServiceImp();
 
-		inid = s4.getIncidentById(id);
+		return searchByIdService.getIncidentById(id);
 
-		return inid;
-
-	}
-
-	@RequestMapping("/test")
-
-	public SearchIncidentMasterDto getUITestSample() {
-
-		IncidentManagementServiceImp a5 = new IncidentManagementServiceImp();
-
-		return a5.testreturnDto();
 	}
 
 	@RequestMapping("/getapproval/{id}")
-	public ApprovalMasterDto getApprovalDetails(@PathVariable String id) {
+	public IncidentApprovalDto getIncidentApproval(@PathVariable String id) {
 
-		IncidentManagementService s6 = new IncidentManagementServiceImp();
-		ApprovalMasterDto approve = new ApprovalMasterDto();
-		;
+		ApproveIncidentService approveIncidentService = new ApproveIncidentServiceImp();
 
-		approve = s6.searchApprovalIncident(id);
-
-		return approve;
+		return approveIncidentService.searchApprovalIncident(id);
 
 	}
 
 	@RequestMapping("/allincidents")
-	public List<IncidentInfoDto> getIncidents()
-	{
+	public List<IncidentInfoDto> getAllIncidents() {
 
-		IncidentManagementService s7 = new IncidentManagementServiceImp();
-		List<IncidentInfoDto> incidentList = new ArrayList<IncidentInfoDto>();
-		incidentList = s7.getAllIncidents();
-		return incidentList;
+		ApproveIncidentService incidentList = new ApproveIncidentServiceImp();
+
+		return incidentList.getAllIncidents();
 	}
 
 }

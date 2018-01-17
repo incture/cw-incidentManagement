@@ -1,12 +1,16 @@
 package com.incture.im.dto;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.incture.im.entity.UserInfoDo;
+
 @XmlRootElement
 
-public class GroupInfoDto implements Serializable {
+public class GroupInfoDto extends BaseDto implements Serializable {
 
 	
 	/**
@@ -16,7 +20,14 @@ public class GroupInfoDto implements Serializable {
 	
 	private String groupId;
 	private String groupName;
+	private List<UserInfoDo> user = new ArrayList<UserInfoDo>();
 	
+	public List<UserInfoDo> getUser() {
+		return user;
+	}
+	public void setUser(List<UserInfoDo> user) {
+		this.user = user;
+	}
 	public String getGroupId() {
 		return groupId;
 	}
@@ -29,6 +40,8 @@ public class GroupInfoDto implements Serializable {
 	public void setGroupName(String groupName) {
 		this.groupName = groupName;
 	}
+	
+	
 	
 	
 }

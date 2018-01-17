@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 
 @XmlRootElement
-public class WorkOrderDto implements Serializable {
+public class WorkOrderDto extends BaseDto implements Serializable {
 	
 	 /**
 	 * 

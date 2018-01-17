@@ -1,7 +1,13 @@
 package com.incture.im.dto;
 
-public class CreationMasterDto {
+import java.io.Serializable;
 
+public class IncidentCreationDto extends BaseDto implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3155533341369157190L;
 	String userId;
 	IncidentInfoDto incident;
 	WorkOrderDto wo;

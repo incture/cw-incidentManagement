@@ -14,11 +14,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="IM_ROLEINFO")
-public class RoleInfo {
+public class RoleInfoDo implements BaseDo{
 	
 	
 	@Id
-	@Column(name="ROLE_ID", length=10)
+	@Column(name="ROLE_ID", length=10,nullable=false)
 	private String roleId;
 	
 	
@@ -28,7 +28,7 @@ public class RoleInfo {
 	@ManyToMany(mappedBy="roles")
 	@JsonIgnore
 	
-	private List<UserInfo> roleusers = new ArrayList<UserInfo>();
+	private List<UserInfoDo> roleusers = new ArrayList<UserInfoDo>();
 
 
 	public String getRoleId() {
@@ -51,12 +51,12 @@ public class RoleInfo {
 	}
 
 
-	public List<UserInfo> getRoleusers() {
+	public List<UserInfoDo> getRoleusers() {
 		return roleusers;
 	}
 
 
-	public void setRoleusers(List<UserInfo> roleusers) {
+	public void setRoleusers(List<UserInfoDo> roleusers) {
 		this.roleusers = roleusers;
 	}
 	

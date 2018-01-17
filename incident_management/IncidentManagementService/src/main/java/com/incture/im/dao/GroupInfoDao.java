@@ -1,13 +1,13 @@
 package com.incture.im.dao;
 
 import com.incture.im.dto.GroupInfoDto;
-import com.incture.im.entity.GroupInfo;
+import com.incture.im.entity.GroupInfoDo;
 
-public class GroupInfoDao {
+public class GroupInfoDao  {
 	
-	public GroupInfo importGroupInfo(GroupInfoDto dto){
+	public GroupInfoDo importGroupInfo(GroupInfoDto dto){
 		
-		GroupInfo dos = new GroupInfo();
+		GroupInfoDo dos = new GroupInfoDo();
 		
 		dos.setGroupId(dto.getGroupId());
 		dos.setGroupName(dto.getGroupName());
@@ -15,7 +15,7 @@ public class GroupInfoDao {
 		return dos;
 	}
 	
-	public GroupInfoDto exportGroupInfo(GroupInfo dos){
+	public GroupInfoDto exportGroupInfo(GroupInfoDo dos){
 		
 		GroupInfoDto dto = new GroupInfoDto();
 		

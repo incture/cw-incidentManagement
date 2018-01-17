@@ -2,13 +2,13 @@ package com.incture.im.dao;
 
 
 import com.incture.im.dto.RoleInfoDto;
-import com.incture.im.entity.RoleInfo;
+import com.incture.im.entity.RoleInfoDo;
 
-public class RoleInfoDao {
+public class RoleInfoDao  {
 	
-public RoleInfo importRoleInfo(RoleInfoDto dto){
+public RoleInfoDo importRoleInfo(RoleInfoDto dto){
 		
-		RoleInfo dos = new RoleInfo();
+		RoleInfoDo dos = new RoleInfoDo();
 		
 		dos.setRoleId(dto.getRoleId());
 		dos.setRoleName(dto.getRoleName());
@@ -16,7 +16,7 @@ public RoleInfo importRoleInfo(RoleInfoDto dto){
 		return dos;
 	}
 	
-	public RoleInfoDto exportRoleInfo(RoleInfo dos){
+	public RoleInfoDto exportRoleInfo(RoleInfoDo dos){
 		
 		RoleInfoDto dto = new RoleInfoDto();
 		
@@ -25,8 +25,5 @@ public RoleInfo importRoleInfo(RoleInfoDto dto){
 		
 		return dto;
 	}
-	
-	
-	
 
 }

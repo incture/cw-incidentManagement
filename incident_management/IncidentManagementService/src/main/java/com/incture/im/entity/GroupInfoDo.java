@@ -8,6 +8,7 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -15,10 +16,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="IM_GROUPINFO")
-public class GroupInfo {
+public class GroupInfoDo implements BaseDo {
 	
 	@Id
-	@Column(name="GROUP_ID", length=10)
+	@Column(name="GROUP_ID", length=10,nullable=false)
 	private String groupId;
 	
 	
@@ -28,7 +29,7 @@ public class GroupInfo {
 	@OneToMany(mappedBy = "group")
 	@JsonIgnore
 
-	private List<UserInfo> user = new ArrayList<UserInfo>();
+	private List<UserInfoDo> user = new ArrayList<UserInfoDo>();
 
 
 	public String getGroupId() {
@@ -51,12 +52,12 @@ public class GroupInfo {
 	}
 
 
-	public List<UserInfo> getUser() {
+	public List<UserInfoDo> getUser() {
 		return user;
 	}
 
 
-	public void setUser(List<UserInfo> user) {
+	public void setUser(List<UserInfoDo> user) {
 		this.user = user;
 	}
 	

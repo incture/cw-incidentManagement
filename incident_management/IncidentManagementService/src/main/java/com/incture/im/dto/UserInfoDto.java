@@ -4,9 +4,11 @@ import java.io.Serializable;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.incture.im.entity.GroupInfoDo;
+
 
 @XmlRootElement
-public class UserInfoDto implements Serializable {
+public class UserInfoDto extends BaseDto implements Serializable {
 	
 	/**
 	 * 
@@ -19,7 +21,14 @@ public class UserInfoDto implements Serializable {
 	private String userEmail;
 	private String userCostctr;
 	private String userGroup;
+	private GroupInfoDo group;
 	
+	public GroupInfoDo getGroup() {
+		return group;
+	}
+	public void setGroup(GroupInfoDo group) {
+		this.group = group;
+	}
 	public String getUserId() {
 		return userId;
 	}

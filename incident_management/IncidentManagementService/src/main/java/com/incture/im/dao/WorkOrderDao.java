@@ -1,15 +1,21 @@
 package com.incture.im.dao;
 
-
 import com.incture.im.dto.WorkOrderDto;
-import com.incture.im.entity.WorkOrder;
+import com.incture.im.entity.WorkOrderDo;
 
-public class WorkOrderDao {
+public class WorkOrderDao extends BaseDao {
 
-	public WorkOrder importWorkOrder(WorkOrderDto dto) {
+	public WorkOrderDo importWorkOrder(WorkOrderDto dto) {
 
-		WorkOrder dos = new WorkOrder();
+		WorkOrderDo dos = new WorkOrderDo();
+
+		dto.setWorkId(SequenceNumberGen.getInstance().getNextSeqNumber("WO", 5, getSession()));
 		
+		String workOrderId = dto.getWorkorderId();
+		
+		String[] splitWorkOrder = workOrderId.split(" ");
+
+		dos.setWorkId(dto.getWorkId());
 		dos.setWorkType(dto.getWorkType());
 		dos.setWorkEquipment(dto.getWorkEquipment());
 		dos.setWorkCenter(dto.getWorkCenter());
@@ -21,18 +27,18 @@ public class WorkOrderDao {
 		dos.setPlanningPlant(dto.getPlanningPlant());
 		dos.setBusArea(dto.getBusArea());
 		dos.setWorkDescription(dto.getWorkDescription());
-		dos.setWorkId(dto.getWorkId());
+		dos.setWorkorderId(splitWorkOrder[1]);
 
 		return dos;
 
 	}
 
-	public WorkOrderDto exportWorkOrder(WorkOrder dos) {
+	public WorkOrderDto exportWorkOrder(WorkOrderDo dos) {
 
 		WorkOrderDto dto = new WorkOrderDto();
-		
 
-		dto.setWorkorderId(dos.getWorkorderId());
+		dto.setWorkId(dos.getWorkId());
+		dto.setWorkType(dos.getWorkType());
 		dto.setWorkEquipment(dos.getWorkEquipment());
 		dto.setWorkCenter(dos.getWorkCenter());
 		dto.setFuncLoc(dos.getFuncLoc());
@@ -43,7 +49,7 @@ public class WorkOrderDao {
 		dto.setPlanningPlant(dos.getPlanningPlant());
 		dto.setBusArea(dos.getBusArea());
 		dto.setWorkDescription(dos.getWorkDescription());
-		dto.setWorkId(dos.getWorkId());
+		dto.setWorkorderId(dos.getWorkorderId());
 
 		return dto;
 

@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 
 @XmlRootElement
-public class RoleInfoDto implements Serializable {
+public class RoleInfoDto extends BaseDto implements Serializable {
 	
 	
 	/**

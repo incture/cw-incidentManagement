@@ -1,12 +1,12 @@
 package com.incture.im.dto;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+
 @XmlRootElement
-public class IncidentInfoDto implements Serializable {
+public class IncidentInfoDto extends BaseDto implements Serializable {
 
 	/**
 	 * 
@@ -18,20 +18,20 @@ public class IncidentInfoDto implements Serializable {
 	private String incidentDescription;
 	private String incidentPriority;
 	private String incidentAction;
-	private Date createdDate;
-	private Date finishDate;
+	private String createdDate;
+	private String finishDate;
 	private String incidentStatus;
-	private Date reportedDate;
+	private String reportedDate;
 	private String assignedGroup;
 	private String assignedTo;
-	private Date assignedDate;
+	private String assignedDate;
 
 	public String getIncidentId() {
 		return incidentId;
 	}
 
-	public void setIncidentId(String incidentId) {
-		this.incidentId = incidentId;
+	public void setIncidentId(String string) {
+		this.incidentId = string;
 	}
 
 	public String getIncidentLob() {
@@ -74,19 +74,19 @@ public class IncidentInfoDto implements Serializable {
 		this.incidentAction = incidentAction;
 	}
 
-	public Date getCreatedDate() {
+	public String getCreatedDate() {
 		return createdDate;
 	}
 
-	public void setCreatedDate(Date createdDate) {
-		this.createdDate = createdDate;
+	public void setCreatedDate(String date) {
+		this.createdDate = date;
 	}
 
-	public Date getFinishDate() {
+	public String getFinishDate() {
 		return finishDate;
 	}
 
-	public void setFinishDate(Date finishDate) {
+	public void setFinishDate(String finishDate) {
 		this.finishDate = finishDate;
 	}
 
@@ -98,11 +98,11 @@ public class IncidentInfoDto implements Serializable {
 		this.incidentStatus = incidentStatus;
 	}
 
-	public Date getReportedDate() {
+	public String getReportedDate() {
 		return reportedDate;
 	}
 
-	public void setReportedDate(Date reportedDate) {
+	public void setReportedDate(String reportedDate) {
 		this.reportedDate = reportedDate;
 	}
 
@@ -122,11 +122,11 @@ public class IncidentInfoDto implements Serializable {
 		this.assignedTo = assignedTo;
 	}
 
-	public Date getAssignedDate() {
+	public String getAssignedDate() {
 		return assignedDate;
 	}
 
-	public void setAssignedDate(Date assignedDate) {
+	public void setAssignedDate(String assignedDate) {
 		this.assignedDate = assignedDate;
 	}
 

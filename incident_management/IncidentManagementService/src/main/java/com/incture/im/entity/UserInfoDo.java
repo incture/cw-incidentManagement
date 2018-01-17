@@ -8,16 +8,17 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "IM_USERINFO")
-public class UserInfo {
+public class UserInfoDo implements BaseDo {
 
 	@Id
-	@Column(name = "USER_ID")
+	@Column(name = "USER_ID",nullable=false)
 	private String userId;
 
 	@Column(name = "FIRST_NAME", length = 50)
@@ -39,15 +40,15 @@ public class UserInfo {
 	private String userGroup;
 
 	@ManyToOne
-	private GroupInfo group;
+	private GroupInfoDo group;
 
-	@ManyToMany(mappedBy = "users")
+	@OneToMany(mappedBy = "users")
 	@JsonIgnore
 
-	private List<IncidentInfo> incidents = new ArrayList<IncidentInfo>();
+	private List<IncidentInfoDo> incidents = new ArrayList<IncidentInfoDo>();
 
 	@ManyToMany
-	private List<RoleInfo> roles = new ArrayList<RoleInfo>();
+	private List<RoleInfoDo> roles = new ArrayList<RoleInfoDo>();
 
 	public String getUserId() {
 		return userId;
@@ -105,27 +106,27 @@ public class UserInfo {
 		this.userGroup = userGroup;
 	}
 
-	public GroupInfo getGroup() {
+	public GroupInfoDo getGroup() {
 		return group;
 	}
 
-	public void setGroup(GroupInfo group) {
+	public void setGroup(GroupInfoDo group) {
 		this.group = group;
 	}
 
-	public List<IncidentInfo> getIncidents() {
+	public List<IncidentInfoDo> getIncidents() {
 		return incidents;
 	}
 
-	public void setIncidents(List<IncidentInfo> incidents) {
+	public void setIncidents(List<IncidentInfoDo> incidents) {
 		this.incidents = incidents;
 	}
 
-	public List<RoleInfo> getRoles() {
+	public List<RoleInfoDo> getRoles() {
 		return roles;
 	}
 
-	public void setRoles(List<RoleInfo> roles) {
+	public void setRoles(List<RoleInfoDo> roles) {
 		this.roles = roles;
 	}
 

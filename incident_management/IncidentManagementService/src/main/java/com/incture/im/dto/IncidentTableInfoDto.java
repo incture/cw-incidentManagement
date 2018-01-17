@@ -1,22 +1,27 @@
 package com.incture.im.dto;
 
-import java.util.Date;
+import java.io.Serializable;
 
-public class IncidentTableMasterDto {
 
+public class IncidentTableInfoDto extends BaseDto implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6126345798514134356L;
 	private String incidentId;
 	private String incidentLob;
 	private String incidentPriority;
 	private String incidentStatus;
-	private Date createdDate;
-	private Date finishDate;
+	private String createdDate;
+	private String finishDate;
 
 	public String getIncidentId() {
 		return incidentId;
 	}
 
-	public void setIncidentId(String incidentId) {
-		this.incidentId = incidentId;
+	public void setIncidentId(String string) {
+		this.incidentId = string;
 	}
 
 	public String getIncidentLob() {
@@ -43,20 +48,20 @@ public class IncidentTableMasterDto {
 		this.incidentStatus = incidentStatus;
 	}
 
-	public Date getCreatedDate() {
+	public String getCreatedDate() {
 		return createdDate;
 	}
 
-	public void setCreatedDate(Date createdDate) {
-		this.createdDate = createdDate;
+	public void setCreatedDate(String string) {
+		this.createdDate = string;
 	}
 
-	public Date getFinishDate() {
+	public String getFinishDate() {
 		return finishDate;
 	}
 
-	public void setFinishDate(Date finishDate) {
-		this.finishDate = finishDate;
+	public void setFinishDate(String string) {
+		this.finishDate = string;
 	}
 
 }

@@ -1,29 +1,23 @@
 package com.incture.im.entity;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
+
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.hibernate.annotations.GenericGenerator;
-
 @Entity
 @Table(name = "IM_INCIDENTINFO")
-public class IncidentInfo {
+public class IncidentInfoDo implements BaseDo {
 
 	@Id
-	@GenericGenerator(name = "sequence_inc_id", strategy = "com.incture.im.keygen.IncidentIdGenerator")
-	@GeneratedValue(generator = "sequence_inc_id")
-	@Column(name = "INCIDENT_ID")
+	@Column(name = "INCIDENT_ID", nullable = false)
 	private String incidentId;
 
 	@Column(name = "INCIDENT_LOB", length = 50)
@@ -35,10 +29,10 @@ public class IncidentInfo {
 	@Column(name = "INCIDENT_DESCRIPTION", length = 255)
 	private String incidentDescription;
 
-	@Column(name = "INCIDENT_PRIORITY", length = 10)
+	@Column(name = "INCIDENT_PRIORITY", length = 20)
 	private String incidentPriority;
 
-	@Column(name = "INCIDENT_ACTION", length = 10)
+	@Column(name = "INCIDENT_ACTION", length = 30)
 	private String incidentAction;
 
 	@Temporal(TemporalType.TIMESTAMP)
@@ -53,7 +47,7 @@ public class IncidentInfo {
 	private String incidentStatus;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "REPORTED_DATE", updatable = false)
+	@Column(name = "REPORTED_DATE")
 	private Date reportedDate;
 
 	@Column(name = "ASSIGNED_GROUP", length = 50)
@@ -63,15 +57,15 @@ public class IncidentInfo {
 	private String assignedTo;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "ASSIGNED_DATE", updatable = false)
+	@Column(name = "ASSIGNED_DATE")
 	private Date assignedDate;
 
 	@OneToOne
-	private WorkOrder workOrder;
+	private WorkOrderDo workOrderDo;
 
-	@ManyToMany
-
-	private List<UserInfo> users = new ArrayList<UserInfo>();
+	@ManyToOne
+	
+	private UserInfoDo users = new UserInfoDo();
 
 	public String getIncidentId() {
 		return incidentId;
@@ -125,8 +119,8 @@ public class IncidentInfo {
 		return createdDate;
 	}
 
-	public void setCreatedDate(Date createdDate) {
-		this.createdDate = createdDate;
+	public void setCreatedDate(Date date) {
+		this.createdDate = date;
 	}
 
 	public Date getFinishDate() {
@@ -177,20 +171,25 @@ public class IncidentInfo {
 		this.assignedDate = assignedDate;
 	}
 
-	public WorkOrder getWorkOrder() {
-		return workOrder;
+	public WorkOrderDo getWorkOrder() {
+		return workOrderDo;
 	}
 
-	public void setWorkOrder(WorkOrder workOrder) {
-		this.workOrder = workOrder;
+	public void setWorkOrder(WorkOrderDo workOrderDo) {
+		this.workOrderDo = workOrderDo;
 	}
 
-	public List<UserInfo> getUsers() {
+	public UserInfoDo getUsers() {
 		return users;
 	}
 
-	public void setUsers(List<UserInfo> users) {
+	public void setUsers(UserInfoDo users) {
 		this.users = users;
+	}
+
+	public Object getPrimaryKey() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

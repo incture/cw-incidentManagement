@@ -3,21 +3,17 @@ package com.incture.im.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name="IM_WORKORDER")
-public class WorkOrder {
+public class WorkOrderDo implements BaseDo {
 	
 	
 	@Id
-	@GenericGenerator(name = "sequence_work_id", strategy = "com.incture.im.keygen.WorkOrderIdGenerator")
-	@GeneratedValue(generator = "sequence_work_id") 
-	@Column(name="WORK_ID")
+	@Column(name="WORK_ID",nullable=false)
 	
 	 private String workId;
 	
