@@ -18,24 +18,89 @@ sap.ui.define([
 			var oComponent = this.getOwnerComponent();
 			this._router = oComponent.getRouter();
 			this._router.getRoute("ViewAllIncidents").attachPatternMatched(this._routePatternMatched, this);
-		},
+			
+			
+			var that = this;
+			var ApprovalModel= new sap.ui.model.json.JSONModel();
+			var IncidentModel = new sap.ui.model.json.JSONModel();
+			var oView = this.getView();
+			var oHeader = {
+					"Content-Type" : "application/json; charset=utf-8"
+				};
+			var DHeader = {
+					"Content-Type" : "application/json; charset=utf-8"
+				};
+			var Geturl= "http://localhost:9014/SpringRestEx/allincidents";
+			oView.setBusy(true);
 
-		//dailog open
-		ologindailog: function() {
-			if (!this.mylogindailog) {
-				this.mylogindailog = sap.ui.xmlfragment("com.incture.fragments.all_incidents", this);
-				this.getView().addDependent(this.mylogindailog);
-			}
-			return this.mylogindailog;
-		},
-		onlinkclick: function(oEvent) {
+				IncidentModel.loadData(Geturl, null, true,
+						"GET", true, true, oHeader);
 
-			this.ologindailog().open(oEvent.getSource());
+				console.log(IncidentModel.getData());
+			oView.setModel(IncidentModel, "IncidentModel");
+			oView.setBusy(false);	
 		},
+		
+		incidentAction : function(oEvent) {
+			console.log("inside incidentaction");
+			var IHeader = {
+				"Content-Type" : "application/json; charset=utf-8"
+			};
+			var oView = this.getView();
+			var that = this;
+			oView.setBusy(true);
+			var ApprovalModel = new sap.ui.model.json.JSONModel();
+			var rowID = oEvent.getSource().getText().toString();
+			var Table_url = "http://localhost:9014/SpringRestEx/getapproval/";
 
-		onloginclose: function(oEvent) {
-			this.getOwnerComponent().getRouter().navTo("dashboard");
+			var Table_urlFinal = Table_url + rowID;
+
+			ApprovalModel.attachRequestCompleted(function(oEvent) {
+				oView.setBusy(false);
+
+				oView.setModel(ApprovalModel, "ApprovalModel");
+				console.log("attached req com");
+				if (!oDialog) {
+					var oDialog = sap.ui.xmlfragment(
+							"screen2table.screen2frag",this);
+//					var oView = this.getView();
+					oView.addDependent(oDialog);
+					oDialog.open();
+				}
+
+				ApprovalModel.refresh();
+			});
+
+			ApprovalModel.attachRequestFailed(function(oEvent) {
+				Approval.refresh();
+			});
+			ApprovalModel.loadData(Table_urlFinal, null, true,
+					"GET", false, false, IHeader);
+
 		},
+		
+		dateConverter: function(date_in) {
+			var date = new Date(0);
+			date.setUTCSeconds(date_in);
+			return date;
+		},
+		onclose: function(oEvent){
+			oEvent.getSource().getParent().getParent().destroy();
+							},
+
+							//dailog open
+							
+							/*onlinkclick: function(oEvent) {
+
+								this.ologindailog().open(oEvent.getSource());
+							},
+
+							onloginclose: function(oEvent) {
+								this.getOwnerComponent().getRouter().navTo("dashboard");
+							},*/
+
+
+		
 
 		/**
 		 * Perform activities to be done when navigating to details page.
