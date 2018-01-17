@@ -1,0 +1,183 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" xmlns:l="sap.ui.layout" controllerName="dashboard.dashboard"
+	xmlns:html="http://www.w3.org/1999/xhtml" displayBlock="true"
+	xmlns:chart="sap.suite.ui.microchart" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+	xmlns:viz.data="sap.viz.ui5.data" xmlns:viz="sap.viz.ui5.controls">
+	<Page title="Dashboard">
+		<content>
+			<VBox class="inctureCapexBox">
+				<Panel expanded="false" headerText="Search" width="auto"
+					class="tabClass">
+					<l:Grid defaultSpan="L6 M12 S12">
+						<HBox>
+							<Label text="Line of business" width="100%"
+								class="inctureUserProfileLblClass1" />
+							<ComboBox selectedKey="{DModelPost>/lob}"
+								showSecondaryValues="true" id="LineOfBusiness" class="combo1">
+								<core:Item key="Transportation" text="Transportation" />
+								<core:Item key="Delivery unit" text="Delivery Unit" />
+								<core:Item key="Plant" text="Plant" />
+								<core:Item key="Healthcare" text="Health care" />
+							</ComboBox>
+						</HBox>
+						<HBox>
+							<Label text="Status" width="100%" class="inctureUserProfileLblClass1"></Label>
+							<ComboBox selectedKey="{DModelPost>/status}"
+								showSecondaryValues="true" id="Status" class= "combo1">
+								<core:ListItem key="OPEN" text="OPEN" />
+								<core:ListItem key="In Progress" text="In Progress" />
+								<core:ListItem key="Close" text="Close" />
+							</ComboBox>
+						</HBox>
+						<HBox>
+							<Label text="Priority" width="100%" class="inctureUserProfileLblClass1"></Label>
+							<ComboBox selectedKey="{DModelPost>/priority}" class="combo2"
+								showSecondaryValues="true" id="Priority">
+								<core:Item key="Urgent" text="Urgent" />
+								<core:Item key="Medium" text="Medium" />
+							</ComboBox>
+						</HBox>
+						<Button class="searchMargin" text="Search" press="onSearch"></Button>
+					</l:Grid>
+				</Panel>
+			</VBox>
+			<!-- Search Box ends -->
+			<!-- Search result begins -->
+			<IconTabBar id="idIconTabBarMulti" class="sapUiResponsiveContentPadding">
+				<items>
+					<IconTabFilter icon="sap-icon://table-chart">
+						<VBox class="inctureCapexBox">
+							<Panel expanded="false" headerText="Search Results" width="auto"
+								class="tabClass">
+								<Table items="{DModelPost>/}" class="sapMListTblCell">
+									<columns>
+										<Column width="6em">
+											<Text text="Incident ID" />
+										</Column>
+										<Column width="8em">
+											<Text text="Line Of Business" />
+										</Column>
+										<Column width="8em">
+											<Text text="Priority" />
+										</Column>
+										<Column width="10em">
+											<Text text="Start" />
+										</Column>
+										<Column width="10em">
+											<Text text="End" />
+										</Column>
+										<Column width="6em">
+											<Text text="Status" />
+										</Column>
+									</columns>
+									<items>
+										<ColumnListItem>
+											<cells>
+												<!-- provide fragment upon press -->
+												<Link text="{DModelPost>incidentId}" press="incidentAction" />
+												<Text text="{DModelPost>incidentLob}" />
+												<Text text="{DModelPost>incidentPriority}" />
+												<Text text="{DModelPost>createdDate}"/>
+												<Text text="{DModelPost>finishDate}"/>
+												<Text text="{DModelPost>incidentStatus}" />
+ 												<Text text="{path:'DModelPost>incidentPriority',formatter:'Dashboard2.Formatter.formatter.Priority'}"/>
+ 											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+							</Panel>
+						</VBox>
+					</IconTabFilter>
+					<!-- Search result ends -->
+					<!-- Charts begin -->
+					<IconTabFilter icon="sap-icon://business-objects-experience">
+						<VBox class="inctureCapexBox">
+							<l:FixFlex id='piechart' minFlexSize="250">
+								<l:flexContent>
+									<viz:Popover id="idPopOver1"></viz:Popover>
+									<viz:VizFrame id="idVizFrame1"
+										vizProperties="{ title: {text : 'Status Of Incidents', visible : true}}"
+										uiConfig="{applicationSet:'fiori'}" height='100%' width="100%"
+										vizType='pie'>
+										<viz:dataset>
+											<viz.data:FlattenedDataset data="{SModel>/DashboardData}">
+												<viz.data:dimensions>
+													<viz.data:DimensionDefinition
+														name="status" value="{SModel>status}" />
+												</viz.data:dimensions>
+												<viz.data:measures>
+													<viz.data:MeasureDefinition
+														name="lob" value="{SModel>urgentCount}" />
+												</viz.data:measures>
+											</viz.data:FlattenedDataset>
+										</viz:dataset>
+										<viz:feeds>
+											<viz.feeds:FeedItem uid="size" type="Measure"
+												values="lob" />
+											<viz.feeds:FeedItem uid="color" type="Dimension"
+												values="status" />
+										</viz:feeds>
+									</viz:VizFrame>
+								</l:flexContent>
+							</l:FixFlex>
+							<l:FixFlex id='line' minFlexSize="250">
+								<l:flexContent>
+									<viz:Popover id="idPopOver"></viz:Popover>
+									<viz:VizFrame id="idVizFrame"
+										vizProperties="{ title: {text : 'Urgent Records', visible : true}}"
+										height='100%' width="100%" vizType='line'>
+										<viz:dataset>
+											<viz.data:FlattenedDataset data="{SModel>/DashboardData}">
+												<viz.data:dimensions>
+													<viz.data:DimensionDefinition
+														name="Incident Id" value="{SModel>incidentID}" />
+												</viz.data:dimensions>
+												<viz.data:measures>
+													<viz.data:MeasureDefinition
+														name="urgent" value="{SModel>urgentCount}" />
+												</viz.data:measures>
+											</viz.data:FlattenedDataset>
+										</viz:dataset>
+										<viz:feeds>
+											<viz.feeds:FeedItem uid="valueAxis" type="Measure"
+												values="urgent" />
+											<viz.feeds:FeedItem uid="categoryAxis"
+												type="Dimension" values="Incident Id" />
+										</viz:feeds>
+									</viz:VizFrame>
+								</l:flexContent>
+							</l:FixFlex>
+							<l:FixFlex id='line2' minFlexSize="250">
+								<l:flexContent>
+									<viz:Popover id="idPopOver2"></viz:Popover>
+									<viz:VizFrame id="idVizFrame2"
+										vizProperties="{ title: {text : 'Maintainance Records', visible : true}}"
+										height='100%' width="100%" vizType='line'>
+										<viz:dataset>
+											<viz.data:FlattenedDataset data="{SModel>/DashboardData}">
+												<viz.data:dimensions>
+													<viz.data:DimensionDefinition
+														name="Incident Id" value="{SModel>incidentID}" />
+												</viz.data:dimensions>
+												<viz.data:measures>
+													<viz.data:MeasureDefinition
+														name="maintainance" value="{SModel>maintainanceCount}" />
+												</viz.data:measures>
+											</viz.data:FlattenedDataset>
+										</viz:dataset>
+										<viz:feeds>
+											<viz.feeds:FeedItem uid="valueAxis" type="Measure"
+												values="maintainance" />
+											<viz.feeds:FeedItem uid="categoryAxis"
+												type="Dimension" values="Incident Id" />
+										</viz:feeds>
+									</viz:VizFrame>
+								</l:flexContent>
+							</l:FixFlex>
+						</VBox>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</content>
+	</Page>
+</core:View>
