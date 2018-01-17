@@ -15,7 +15,7 @@
 	</columns>
 	<items>
 	<ColumnListItem>
-	<Link text="173" press="onlinkclick"/>
+	<Link text="123" press="onlinkclick"/>
 	<Text text="{oModel>name}"/>
 	<Text text="{oModel>age}"/>
 	</ColumnListItem>

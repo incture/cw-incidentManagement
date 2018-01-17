@@ -62,6 +62,120 @@
 	}, {
 		"priority": "Critical",
 		"action": "Emergency"
-	}]
+	}],
+	
+	"control_key": [
+
+		{
+			"m": "PM01"
+		},
+		{
+			"m": "PM05"
+		},
+		{
+			"m": "PM07"
+		},
+		{
+			"m": "PP01"
+		},
+		{
+			"m": "PP03"
+		},
+		{
+			"m": "PP04"
+		},
+		{
+			"m": "PS01"
+		},
+		{
+			"m": "PS03"
+		},
+		{
+			"m": "PS05"
+		},
+		{
+			"m": "QM01"
+		},
+		{
+			"m": "QM02"
+		},
+		{
+			"m": "QM03"
+		},
+		{
+			"m": "QM04"
+		},
+		{
+			"m": "SM01"
+		},
+		{
+			"m": "WCM"
+
+		}
+	],
+	
+	
+	"d":{
+	
+	"Worktype": [
+
+		{
+			"m": " Service Order",
+			"n": "CU01"
+		},
+		{
+			"m": " Service Order",
+			"n": "CU02"
+		},
+		
+		{
+			"m": " Maintaince Order",
+			"n": "CU03"
+		},
+		{
+			"m": " Maintaince Order",
+			"n": "CU04"
+		},
+		{
+			"m": " Maintaince Order",
+			"n": "PM01"
+		},
+		{
+			"m": "Maintaince Order",
+			"n": "PM02"
+		},
+		{
+			"m": "Maintaince Order / Notification",
+			"n": "PM03"
+		},
+		{
+			"m": "Refurbishment Order",
+			"n": "PM04"
+		},
+		{
+			"m": "Calibiration Order",
+			"n": "PM05"
+		},
+		{
+			"m": "Capital Investment Order",
+			"n": "PM06"
+		},
+		{
+			"m": "Service Order",
+			"n": "SM01"
+		},
+		{
+			"m": "Service Order (With Revenues)",
+			"n": "SM02"
+		},
+		{
+			"m": "Repair Service",
+			"n": "SM03"
+		}
+	]
+	}
+	
+
+
 
 }

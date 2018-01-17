@@ -63,7 +63,14 @@
 	font-family: Open Sans !important;
 	width: 10rem;
     margin-left: 4rem !important;
+    
 }
+.sapMInputBaseWarningInner{
+	
+	border-color: #adaba9 !important ;
+}
+
+
 .inctmangUserinfoClass3{
 	font-family: Open Sans !important;
 	width: 10rem;
@@ -104,50 +111,56 @@
 }
 
 .inctmang_lob1{
-    margin-left: 1rem !important;
+    margin-left: 2rem !important;
 }
 
 .inctmang_type1{
     margin-left: 1rem !important;
 }
+.inctmang_type12{
+    margin-left: 4rem !important;
+}
 .inctmang_businearea{
-    margin-left: 1.8rem !important;
+    margin-left: 1.1rem !important;
 }
 .inctmang_worktype{
     margin-left: 2.5rem !important;
 }
 
 .inctmang_assdt{
-    margin-left: 2rem !important;
+    margin-left: 4.3rem !important;
 }
 .inctmang_priority{
     margin-left: 5.5rem !important;
 }
 .inctmang_Action{
-    margin-left: 5rem !important;
+    margin-left: 5.4rem !important;
 }
 .inctmang_Status{
     margin-left: 5.8rem !important;
 }
 
 .inctmang_group{
-    margin-left: 1.3rem !important;
+    margin-left: 1.6rem !important;
 }
 .inctmang_type2{
  margin-top: 1rem !important;
  	
 }
 .inctmang_typeu{
-    margin-left: 3.8rem !important;
+    margin-left: 4rem !important;
 }
 .inctmang_planng{
-    margin-left: 1.3rem !important;
+    margin-left: 1.6rem !important;
+}
+.inctmang_planngplt{
+    margin-left: .8rem !important;
 }
 .inctmang_control{
     margin-left: 2.2rem !important;
 }
 .inctmang_typel{
-    margin-left: 2.1rem !important;
+    margin-left: 1.8rem !important;
 }
 .inctmang_startdt{
     margin-left: 1.3rem !important;
@@ -156,10 +169,10 @@
     margin-left: 2.3rem !important;
 }
 .inctmang_typea{
-    margin-left: 1.6rem !important;
+    margin-left: 2.3rem !important;
 }
 .inctmang_report_on{
-    margin-left: 2.6rem !important;
+    margin-left: 3rem !important;
 }
 
 .inctmang_craetebtn{

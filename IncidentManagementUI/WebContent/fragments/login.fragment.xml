@@ -13,36 +13,50 @@
 				</contentMiddle>
 			</Bar>
 		</customHeader>
-		<!-- <footer>
-			<Bar>
-				<contentMiddle>
-					<Text text="@2013-2018 BookmyMovie Resources @Harsha All rights reserved"></Text>
-				</contentMiddle>
-			</Bar>
-		</footer> -->
+		<Image src="./images/checked.png" densityAware="false" width="20%" class="congo"></Image>
+   
+   <Text text="Congratulation!" class="congo2"/>
     <VBox class="vbox">
     		<l:Grid defaultSpan="L6 M12 S12">
    <HBox>
    <Label text="User Id:"  width="100%" class=""/>
-	<Label text="000001"  width="100%" class=""/>
+	<Label text="{mod2>/userId}"  width="100%" class=""/>
    </HBox>
   
    
  	<HBox>
 	<Label text="Name:" multiple="true" width="100%" class=""/>
 	<HBox>
-	<Label text="KURRU HARSHA "  width="" class=""/>
-	<Label text="VARDHANA"  width="" class=""/></HBox>
+	<Label text="{mod2>/firstName}"  width="" class=""/>
+	<Label text="{mod2>/lastName}"  width="" class=""/></HBox>
 	</HBox>
 	
 		<HBox>
-	<Label text="Line Of Business:" multiple="true" width="100%" class=""/>
+	<Label text="Work Type:" multiple="true" width="100%" class=""/>
+	
 	<HBox>
-	<Label text=""  width="" class=""/>
-	<Label text="VARDHANA"  width="" class=""/></HBox>
+	<Label value="{mod4>ordrtyp}" text="{mod11>/d/Ordertype}"  width="" class=""/>
+	</HBox>
+	</HBox>
+	<HBox>
+	<Label text="Action:" multiple="true" width="100%" class=""/>
+	
+	<HBox>
+	<Label text="{model>/priorityaction}"  width="" class=""/>
+	</HBox>
 	</HBox>
 	
+	<!-- <ComboBox selectedKey="{mod4>/lob2}" class="inctmang_lob1" width="90%"  selectionChange="onLOBselection">
+							<items>
+								<core:Item key="{mod11>/d/Ordertype}" text="{mod11>/d/Ordertype}" />
+							</items>
+						</ComboBox> -->
+	
  	</l:Grid>
+ 	
+ 	<HBox>
+	<Label  text="{mod11>/d/Message}"  width="" class=""/></HBox>
+ 	<Text text="CLICK OK TO SUBMIT THE DETAILS" class="congo2"/>
    <Button text="OK" press="onloginclose" class="f"/>
    </VBox>
    <!-- <beginButton>

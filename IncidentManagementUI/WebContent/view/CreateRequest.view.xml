@@ -14,8 +14,8 @@
 					<HBox>
 						<Label text="Name:" multiple="true" width="100%" class="inctureUserProfileLblClass1"/>
 						<HBox>
-							<Input value="{mod2>/firstName}" editable="false" width="100%" class="inctmangUserinfoClass2"/>
-							<Input value="{mod2>/lastName}" editable="false" width="60%" class="inctmangUserinfoClass2"/></HBox>
+							<Input value="{mod2>/firstName} {mod2>/lastName}" editable="false" width="83%" class="inctmangUserinfoClass2"/>
+						</HBox>	
 					</HBox>
 					<HBox>
 						<Label text="Email:" multiple="true" width="100%" class="inctureUserProfileLblClass1"/>
@@ -23,19 +23,19 @@
 					</HBox>
 					<HBox>
 						<Label text="Mobile:" multiple="true" width="100%" class="inctureUserProfileLblClass1"/>
-						<Input value="{mod2>/userId}" editable="false" width="83%" class="inctmangUserinfoClass4"/>
+						<Input value="{mod2>/userMobile}" editable="false" width="84%" class="inctmangUserinfoClass4"/>
 					</HBox>
 					<HBox>
 						<Label text="Cost Ctr:" multiple="true" width="100%" class="inctureUserProfileLblClass1"/>
-						<Input value="{mod2>/CostCtr3}" editable="false" width="105%" class="inctmangUserinfoClass5"/>
+						<Input value="{mod2>/userCostctr}" editable="false" width="105%" class="inctmangUserinfoClass5"/>
 					</HBox>
 					<HBox>
 						<Label text="Group:" multiple="true" width="100%" class="inctureUserProfileLblClass1"/>
-						<Input value="{mod2>/Group3}" editable="false" width="83%" class="inctmangUserinfoClass6"/>
+						<Input value="{mod2>/userGroup}" editable="false" width="83%" class="inctmangUserinfoClass6"/>
 					</HBox>
 					<HBox>
 						<Label text="Reported By :" multiple="true" width="100%" class="inctureUserProfileLblClass1"/>
-						<Input value="Harsha" width="125%" editable="false" class="inctmangUserinfoClass7"/>
+						<Input value="Harsha" width="123%" editable="false" class="inctmangUserinfoClass7"/>
 					</HBox>
 					<HBox>
 						<Label text="Assigned To:" multiple="true" width="100%" class="inctureUserProfileLblClass1"/>
@@ -48,28 +48,11 @@
 		<!-- create incident box-->
 		<VBox class="inctureCapexBox">
 			<Panel expandable="true" expanded="true" headerText="INCIDENT INFORMATION " width="auto" class="tabClass">
-				<l:Grid defaultSpan="L4 M12 S12">
-					<HBox>
-						<Label text="Incident Id:" width="100%" class="inctureUserProfileLblClass2"/>
-						<Input value="000001" editable="false" width="85%" class="inctmangCreatincdClass1"/></HBox>
-					<!--<Label text="" class="inctureUserProfileInputClass" >
-											<layoutData>
-												<FlexItemData growFactor="2"/>
-											</layoutData>
-										</Label>
-											<Label text="" class="inctureUserProfileInputClass" >
-											<layoutData>
-												<FlexItemData growFactor="2"/>
-											</layoutData>
-										</Label>
-										<Label text="" class="inctureUserProfileInputClass" >
-											<layoutData>
-												<FlexItemData growFactor="2"/>
-											</layoutData>
-										</Label>-->
+				<l:Grid defaultSpan="L6 M12 S12">
+					
 					<HBox>
 						<Label text="Line Of Business:" tooltip="" class="inctureUserProfileLblClass3" ></Label>
-						<ComboBox selectedKey="{mod4>/lob}" class="inctmang_lob1" width="90%" items="{model>/LOB}" selectionChange="onLOBselection">
+						<ComboBox selectedKey="{mod4>/lob}" class="inctmang_lob1" width="100%" items="{model>/LOB}" selectionChange="onLOBselection">
 							<items>
 								<core:Item key="{model>title}" text="{model>title}" />
 							</items>
@@ -77,12 +60,10 @@
 					</HBox>
 					<HBox>
 						<Label text="Type Of:" class="inctmang_type2"></Label>
-						<ComboBox selectedKey="{mod4>/type}" class="inctmang_type1"  width="80%" items="{oModel>/}">
+						<ComboBox selectedKey="{mod4>/type}" class="inctmang_type12"  width="85%" items="{oModel>/}">
 							<items>
 							<core:Item key="{oModel>m}" text="{oModel>m}"/>
-							<!--<core:ListItem key="Train" text="Delivery Unit"/>-->
-							<!--<core:ListItem key="Plant" text="Plant"/>-->
-							<!--<core:ListItem key="Healthcare" text="Health care"/>-->
+							
 							</items>
 						</ComboBox>
 					</HBox>
@@ -90,7 +71,7 @@
 				<l:Grid defaultSpan="L12 M12 S12">
 					<VBox class="sapUiTinyMarginBottom">
 						<Label text="Description:" tooltip="Comments" width="100%" class="inctureUserProfileLblClass"/>
-						<TextArea maxLength="200" showExceededText="true" editable="true" value="{mod4>/Desrpt}" height="100px" width="98%" id="textAreaWithoutBinding"
+						<TextArea maxLength="40" showExceededText="true" editable="true" value="{mod4>/Desrpt}" height="100px" width="98%" id="textAreaWithoutBinding"
 							liveChange="handleLiveChange" valueState="Warning" valueLiveUpdate="true"/>
 						<!--<layoutData>
 											<FlexItemData growFactor="2"/>
@@ -98,26 +79,12 @@
 					</VBox>
 				</l:Grid>
 				<l:Grid defaultSpan="L6 M12 S12">
-					<!--<HBox>
-										<Label text="Equipment:"  width="100%" class="inctureUserProfileLblClass3"/>
-									<VBox>
-                                    <ComboBox  width="90%" showSecondaryValues="true">
-                                    <core:ListItem key="Transport" text="Transport" />
-                                    <core:ListItem key="Deliveryunit" text="Delivery Unit" />
-                                    <core:ListItem key="Plant" text="Plant" />
-                                    <core:ListItem key="Healthcare" text="Health care" />
-                                    </ComboBox>
-                                    </VBox>
-										
-								</HBox>-->
+					
 					<HBox>
 						<Label text="Priority:"  class="inctureUserProfileLblClass3"  ></Label>
 						<ComboBox selectedKey="{mod4>/Priorty}" class="inctmang_priority" width="83%" showSecondaryValues="true" items="{model>/PRIORITY}" selectionChange="onpriorityselection">
 							<core:Item key="{model>priority}" text="{model>priority}"/>
-						<!--	<core:ListItem key="Transport" text="Low"/>
-							<core:ListItem key="Deliveryunit" text="Medium"/>
-							<core:ListItem key="Deliveryunit" text="High"/>
-							<core:ListItem key="Deliveryunit" text="Critical"/>-->
+						
 						</ComboBox>
 					</HBox>
 					<HBox>
@@ -129,50 +96,39 @@
 					</HBox>
 					<HBox>
 						<Label text="Status:" tooltip="" class="inctureUserProfileLblClass3"></Label>
-						<!-- <Input value="New" editable="false" class="inctmang_Status" width="93%" showSecondaryValues="true"/> -->
-							<ComboBox  width="82%" selectedKey="{mod4>/Assignd_grp}" class="inctmang_Status" showSecondaryValues="true">
-							<core:Item key="Open" text="Open"/>
+						<Input value="Open" editable="false" class="inctmang_Status" width="93%" showSecondaryValues="true"/> 
+							<!-- <ComboBox  width="82%" selectedKey="{mod4>/Assignd_grp}" class="inctmang_Status" showSecondaryValues="true">
+							<core:Item key="Open" text="Open"/> -->
 							
-						</ComboBox>
-					</HBox>
-			
-				<!--<HBox>
-									<Label text="Work Center:" tooltip=""  class="inctureUserProfileLblClass3"></Label> 
-	                                <VBox>
-                                    <ComboBox showSecondaryValues="true">
-                                    <core:ListItem key="Open" text="Open" />
-                                    <core:ListItem key="Inprogress" text="In progress" />
-                                    <core:ListItem key="Completed" text="Completed" />
-                                    <core:ListItem key="Reopen" text="Reopen" />
-                                    </ComboBox>
-                                </VBox>
-								</HBox>-->
-			
+						<!-- </ComboBox> -->
+					</HBox>			
 					<HBox>
 						<Label text="Assigned Group:" tooltip="" class="inctureUserProfileLblClass3"></Label>
 						<ComboBox selectedKey="{mod4>/Assignd_grp}" class="inctmang_group" width="100%" showSecondaryValues="true">
 							
-							<core:ListItem key="Inprogress" text="In progress"/>
-							<core:ListItem key="Completed" text="Completed"/>
-							<core:ListItem key="Reopen" text="Reopen"/>
+							<core:ListItem key="Group 1" text="Group 1"/>
+							<core:ListItem key="Group 2" text="Group 2"/>
+							<core:ListItem key="Group 3" text="Group 3"/>
 						</ComboBox>
 					</HBox>
 					<HBox>
-						<Label text="Assign Date On:" tooltip="" class="inctureUserProfileLblClass3"></Label>
-						<DateTimePicker value="{mod4>/Assig_dt}" id="assigndate" class="inctmang_assdt" width="106%" placeholder="Enter Date Time..." displayFormat="short"/>
+						<Label text="Assign On:" tooltip="" class="inctureUserProfileLblClass3"></Label>
+						<Input value="{model>/todaydate}"  class="inctmang_assdt" width="102%"   />
 					</HBox>
 					<HBox>
 						<Label text="Reported On:" tooltip="" class="inctureUserProfileLblClass3"></Label>
-						<DatePicker value="{mod4>/Reprt_on}" id="reportedon" class="inctmang_report_on" width="95%" placeholder="Enter Date... " displayFormat="short"/>
+						<Input value="{model>/todaydate}"  class="inctmang_report_on"   width="106%"  />
 					</HBox>
 					<HBox>
 						<Label text="Basic Start Date:" required="true" tooltip="" class="inctureUserProfileLblClass3" ></Label>
-						<DateTimePicker  id="date_start" class="inctmang_startdt" width="110%" value="{model>/startdate}" change="startdate" placeholder="Enter Date Time..." displayFormat="short"/>
-					</HBox>
+					<HBox>	<DatePicker   class="inctmang_startdt" width="80%" id="date_start" valueFormat="yyyy-MM-ddT" value="{model>/startdate}" change="startdate" placeholder="Enter Date..." displayFormat="MMM d, y"/>
+						<TimePicker  minutesStep="15"   width="70%" valueFormat="HH:mm:ss" value="{model>/starttime}" change="startdate" placeholder="Enter Time..." displayFormat=" HH:mm"/>
+					</HBox></HBox>
 					<HBox>
-						<Label text=" Basic Finish Date:" tooltip="" class="inctureUserProfileLblClass3"></Label>
-						<DateTimePicker value="{mod4>/finishdt}" id="date_finish" class="inctmang_type1" width="108%" placeholder="Enter Date Time..." displayFormat="short"/>
-					</HBox>
+						<Label text="Basic Finish Date:" required="true" tooltip="" class="inctureUserProfileLblClass3"></Label>
+					<HBox>	<DatePicker value="{mod4>/finishdt}" valueFormat="yyyy-MM-ddT" class="inctmang_type1" width="80%" placeholder="Enter Date..." displayFormat="MMM d, y"/>
+						<TimePicker minutesStep="15" value="{mod4>/finishtm}" valueFormat="HH:mm:ss"   width="60%" placeholder="Enter Time..." displayFormat=" HH:mm"/>
+					</HBox></HBox>
 					
 				</l:Grid>
 				<HBox justifyContent="End">
@@ -186,113 +142,93 @@
 		<VBox class="inctureCapexBox">
 			<Panel expandable="true" expanded="true" headerText="WORK ORDER" width="auto" class="tabClass">
 				<l:Grid defaultSpan="L4 M12 S12">
-					<!--<Label text="" class="inctureUserProfileInputClass" >
-											<layoutData>
-												<FlexItemData growFactor="2"/>
-											</layoutData>
-										</Label>
-											<Label text="" class="inctureUserProfileInputClass" >
-											<layoutData>
-												<FlexItemData growFactor="2"/>
-											</layoutData>
-										</Label>
-										<Label text="" class="inctureUserProfileInputClass" >
-											<layoutData>
-												<FlexItemData growFactor="2"/>
-											</layoutData>
-										</Label>-->
+					
 					<HBox>
-						<Label text="Work Equipment:" tooltip="" class="inctureUserProfileLblClass3"></Label>
-						<ComboBox selectedKey="{mod4>/Work_eqpt}" items="{mod8>/d/results}" class="inctmang_type1" showSecondaryValues="true" width="90%">
-							<core:Item key="{mod8>Auart}" text="{mod8>Auart}"/>
-						</ComboBox>
-					</HBox>
-					<HBox>
-						<Label text="Work Center:" tooltip="" class="inctureUserProfileLblClass3"></Label>
-						<ComboBox selectedKey="{mod4>/Work_centr}" items="{mod6>/d/results}" class="inctmang_typel" showSecondaryValues="true" width="82%">
-							<core:Item key="{mod6>Arbpl}" text="{mod6>Arbpl}"/>
-						</ComboBox>
-					</HBox>
-					<!--<HBox>
-										<Label text="Equipment:"  width="100%" class="inctureUserProfileLblClass3"/>
-									<VBox>
-                                    <ComboBox  width="90%" showSecondaryValues="true">
-                                    <core:ListItem key="Transport" text="Transport" />
-                                    <core:ListItem key="Deliveryunit" text="Delivery Unit" />
-                                    <core:ListItem key="Plant" text="Plant" />
-                                    <core:ListItem key="Healthcare" text="Health care" />
-                                    </ComboBox>
-                                    </VBox>
-										
-								</HBox>-->
-					<HBox>
-						<Label text="Func Locat:" tooltip="" class="inctureUserProfileLblClass3"></Label>
-						<ComboBox selectedKey="{mod4>/Fun_loc}" items="{mod7>/d/results}" class="inctmang_typem" width="80%" showSecondaryValues="true">
-							<core:Item key="{mod7>Tplnr}" text="{mod7>Tplnr}"/>
-						</ComboBox>
-					</HBox>
-					<HBox>
-						<Label text="Assembly:" tooltip="" class="inctureUserProfileLblClassaasmb1e"></Label>
-						<ComboBox selectedKey="{mod4>/assembly}" class="inctmang_typeu" width="72%" showSecondaryValues="true">
-							<core:ListItem key="Open" text="Open"/>
-							<core:ListItem key="Inprogress" text="In progress"/>
-							<core:ListItem key="Completed" text="Completed"/>
-							<core:ListItem key="Reopen" text="Reopen"/>
-						</ComboBox>
-					</HBox>
-					<HBox>
-						<Label text="Control Key:" tooltip="" class="inctureUserProfileLblClass3"></Label>
-						<ComboBox selectedKey="{mod4>/Contr_key}" width="82%" class="inctmang_control" showSecondaryValues="true">
-							<core:ListItem key="Open" text="Open"/>
-							<core:ListItem key="Inprogress" text="In progress"/>
-							<core:ListItem key="Completed" text="Completed"/>
-							<core:ListItem key="Reopen" text="Reopen"/>
-						</ComboBox>
-					</HBox>
-					<HBox>
-						<Label text="Activity Type:" tooltip="" class="inctureUserProfileLblClass3"></Label>
-						<ComboBox selectedKey="{mod4>/Actvty_typ}" width="84%" class="inctmang_typea" showSecondaryValues="true">
-							<core:ListItem key="Open" text="Open"/>
-							<core:ListItem key="Inprogress" text="In progress"/>
-							<core:ListItem key="Completed" text="Completed"/>
-							<core:ListItem key="Reopen" text="Reopen"/>
-						</ComboBox>
-					</HBox>
-					<HBox>
-						<Label text="Planning Group:" tooltip="" class="inctureUserProfileLblClass3"></Label>
-						<ComboBox selectedKey="{mod4>/Plng_grp}" width="87%" class="inctmang_planng" items="{mod9>/d/results}" showSecondaryValues="true">
-							<core:Item key="{mod9>Ingrp}" text="{mod9>Ingrp}"/>
-						</ComboBox>
-					</HBox>
-					<HBox>
-						<Label text="Work Type:"   tooltip="" class="inctureUserProfileLblClass3"></Label>
-						<ComboBox selectedKey="{mod4>/Work_Type}" width="80%" change="onChangeWorkType" class="inctmang_worktype"  items="{mod1>/d/results}" showSecondaryValues="true">
+						<Label text="Work Type:" required="true"  tooltip="" class="inctureUserProfileLblClass3"></Label>
+						 <!--  <ComboBox selectedKey="{mod4>/Work_Type}" width="75%" change="onChangeWorkType" class="inctmang_worktype"  items="{mod1>/d/results}" showSecondaryValues="true">
 							<core:Item key="{mod1>Auart}" text="{mod1>Auart}"/>
-						
-						</ComboBox>
+							</ComboBox>  -->
+							  <ComboBox selectedKey="{mod4>/Work_Type}" width="75%" change="onChangeWorkType" class="inctmang_worktype" items="{model>/d/Worktype}" showSecondaryValues="true">
+							<core:ListItem key="{model>n}" text="{model>n} {model>m} "/>
+												
+						</ComboBox> 
+							
 					</HBox>
 						<HBox>
-						<Label text="Planning Plant:"   tooltip="" class="inctureUserProfileLblClass3"></Label>
-						<ComboBox selectedKey="{mod4>/Planng_plant}" width="86%" change="onChangePlanningPlant" class="inctmang_planng"  items="{mod3>/d/results}" showSecondaryValues="true">
+						<Label text="Planning Plant:" required="true"  tooltip="" class="inctureUserProfileLblClass3"></Label>
+						<ComboBox selectedKey="{mod4>/Planng_plant}" width="87%" change="onChangePlanningPlant" class="inctmang_planngplt"  items="{mod3>/d/results}" showSecondaryValues="true">
 							<core:Item key="{mod3>Iwerk}" text="{mod3>Iwerk}"/>
 						
+						</ComboBox>
+					</HBox>					
+					<HBox>
+						<Label text="Work Equipment:" required="true" tooltip="" class="inctureUserProfileLblClass3"></Label>
+						<ComboBox selectedKey="{mod4>/Work_eqpt}" items="{mod8>/d/results}" class="inctmang_type1" showSecondaryValues="true" width="90%">
+							<core:Item key="{mod8>Equnr}" text="{mod8>Equnr}"/>
 						</ComboBox>
 					</HBox>
 					
 					<HBox>
-						<Label text="Business Area:" tooltip="" class="inctureUserProfileLblClass3"  ></Label>
+						<Label text="Work Center:" required="true" tooltip="" class="inctureUserProfileLblClass3"></Label>
+						<ComboBox selectedKey="{mod4>/Work_centr}" items="{mod6>/d/results}" class="inctmang_typel" showSecondaryValues="true" width="79%">
+							<core:Item key="{mod6>Arbpl}" text="{mod6>Arbpl}"/>
+						</ComboBox>
+					</HBox>
+					
+					<HBox>
+						<Label text="Func Locat:" required="true" tooltip="" class="inctureUserProfileLblClass3"></Label>
+						<ComboBox selectedKey="{mod4>/Fun_loc}" items="{mod7>/d/results}" class="inctmang_typem" width="78%" showSecondaryValues="true">
+							<core:Item key="{mod7>Tplnr}" text="{mod7>Tplnr}"/>
+						</ComboBox>
+					</HBox>
+					<HBox>
+						<Label text="Assembly:" tooltip="" required="true" class="inctureUserProfileLblClassaasmb1e"></Label>
+						<ComboBox selectedKey="{mod4>/assembly}" items="{mod10>/d/results}" class="inctmang_typeu" width="69%" showSecondaryValues="true">
+							
+							<core:Item key="{mod10>Matnr}" text="{mod10>Maktg}"/>
+						</ComboBox>
+					</HBox>
+					<HBox>
+						<Label text="Control Key:" required="true" tooltip="" class="inctureUserProfileLblClass3"></Label>
+						<ComboBox selectedKey="{mod4>/Contr_key}" width="77%" class="inctmang_control" items="{model>/control_key}" showSecondaryValues="true">
+							<core:ListItem key="{model>m}" text="{model>m}"/>
+							
+							
+						</ComboBox>
+					</HBox>
+					<HBox>
+						<Label text="Activity Type:" tooltip="" class="inctureUserProfileLblClass3"></Label>
+						<ComboBox selectedKey="{mod4>/Actvty_typ}" width="79%" class="inctmang_typea" showSecondaryValues="true">
+							<core:ListItem key="001" text="001"/>
+							
+						</ComboBox>
+					</HBox>
+					<HBox>
+						<Label text="Planning Group:" required="true" tooltip="" class="inctureUserProfileLblClass3"></Label>
+						<ComboBox selectedKey="{mod4>/Plng_grp}" width="82%" class="inctmang_planng" items="{mod9>/d/results}" showSecondaryValues="true">
+							<core:Item key="{mod9>Ingrp}" text="{mod9>Ingrp}"/>
+						</ComboBox>
+					</HBox>
+					<HBox>
+						<Label text="Business Area:" required="true" tooltip="" class="inctureUserProfileLblClass3"  ></Label>
 						<ComboBox selectedKey="{mod4>/Bus_ar}" width="84%" class="inctmang_businearea" items="{mod5>/d/results}" showSecondaryValues="true">
 							<core:Item key="{mod5>Gsber}" text="{mod5>Gsber}"/>
 						</ComboBox>
 					</HBox>
 				</l:Grid>
+				<l:Grid defaultSpan="L12 M12 S12">
+				
+					<VBox class="sapUiTinyMarginBottom">
+						<Label text="Work Description:" required="true" tooltip="Comments" width="100%" class="inctureUserProfileLblClass"/>
+						<TextArea maxLength="40" showExceededText="true" editable="true" value="{mod4>/Wrk_Desrpt}" height="100px" width="98%" 
+							liveChange="handleLiveChange" valueState="Warning" valueLiveUpdate="true"/>
+					</VBox>
+				</l:Grid>
+				
 			</Panel>
 		</VBox>
-		<!--	<HBox  class="inctmang_craetebtn" justifyContent="">
-	 					
-	 					<Button text="Create" press="onCreateClick" type="Emphasized" class="sapUiSmallMarginEnd"/>
-	 					<Button text="Cancel" press="onCreateClick" type="Reject" class="sapUiSmallMarginEnd"/>
-	 				</HBox>-->
+		
+		
 		<footer>
 			<Bar>
 				<contentMiddle>
