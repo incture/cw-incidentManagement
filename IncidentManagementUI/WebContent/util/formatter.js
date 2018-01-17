@@ -142,6 +142,7 @@ com.incture.util.formatter = {
 			return " ";
 		}
 	},
+	
 	getOrderStatusColour:function(oOrderStatus){
 		if(oOrderStatus){
 		this.getParent().removeStyleClass("inctureTrackOrderStatusBox");
@@ -152,5 +153,22 @@ com.incture.util.formatter = {
 		}
 		}
 		return "";
+	},
+	
+	Priority: function(stat) {
+		console.log(stat);
+		
+		switch (stat) {
+			
+			case 'Urgent':
+				this.getParent().addStyleClass('red');
+				break;
+			case 'Medium':
+				this.getParent().addStyleClass('green');
+				break;
+			default:
+				this.getParent().addStyleClass('green');
+		};
+		
 	}
 };

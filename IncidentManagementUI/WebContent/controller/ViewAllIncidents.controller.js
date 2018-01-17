@@ -62,7 +62,7 @@ sap.ui.define([
 				console.log("attached req com");
 				if (!oDialog) {
 					var oDialog = sap.ui.xmlfragment(
-							"screen2table.screen2frag",this);
+							"com.incture.fragments.screen2frag",this);
 //					var oView = this.getView();
 					oView.addDependent(oDialog);
 					oDialog.open();

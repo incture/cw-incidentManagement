@@ -21,7 +21,7 @@ sap.ui.define([
 			
 			var SModel = new sap.ui.model.json.JSONModel();
 			this.getView().setModel(SModel, "SModel");
-			SModel.loadData("./JSON/DBoard.json");
+			SModel.loadData("./model/DBoard.json");
 			this.getView().getModel("SModel").setProperty(
 					"IncidentID", "", null, true);
 			this.getView().getModel("SModel").setProperty("Status",
@@ -110,7 +110,7 @@ sap.ui.define([
 				console.log("attached req com");
 				if (!oDialog) {
 					var oDialog = sap.ui.xmlfragment(
-							"dashboard.frag", this);
+							"com.incture.fragments.frag", this);
 					// var oView = this.getView();
 					oView.addDependent(oDialog);
 					oDialog.open();

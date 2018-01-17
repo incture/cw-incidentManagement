@@ -44,6 +44,12 @@
 					"uri": "./css/Style.css"
 				},
 				{
+					"uri": "./css/approva.css"
+				},
+				{
+					"uri": "./css/dashboar.css"
+				},
+				{
 					"uri": "./css/font-awesome.css"
 				},
 				{
