@@ -163,6 +163,6 @@
 						</Panel>
 					</VBox>
 										<Button text="Close" class="inctmang_create" press="onclose"/>
-		K
+		
 		</Dialog>
 	</core:FragmentDefinition>
