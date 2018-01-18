@@ -1,66 +1,65 @@
-<core:FragmentDefinition
-    xmlns="sap.m"
-    xmlns:l="sap.ui.layout"
-    xmlns:f="sap.ui.layout.form"
-    xmlns:core="sap.ui.core">
-    
-    <Dialog  class="daoloo">
-    <customHeader class="header">
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+
+	<Dialog class="daoloo">
+		<customHeader class="header">
 			<Bar>
 				<contentMiddle>
-				
+
 					<Text text="INCIDENT CREATION SUCCESSFULL" />
 				</contentMiddle>
 			</Bar>
 		</customHeader>
-		<Image src="./images/checked.png" densityAware="false" width="20%" class="congo"></Image>
-   
-   <Text text="Congratulation!" class="congo2"/>
-    <VBox class="vbox">
-    		<l:Grid defaultSpan="L6 M12 S12">
-   <HBox>
-   <Label text="User Id:"  width="100%" class=""/>
-	<Label text="{mod2>/userId}"  width="100%" class=""/>
-   </HBox>
-  
-   
- 	<HBox>
-	<Label text="Name:" multiple="true" width="100%" class=""/>
-	<HBox>
-	<Label text="{mod2>/firstName}"  width="" class=""/>
-	<Label text="{mod2>/lastName}"  width="" class=""/></HBox>
-	</HBox>
-	
-		<HBox>
-	<Label text="Work Type:" multiple="true" width="100%" class=""/>
-	
-	<HBox>
-	<Label value="{mod4>ordrtyp}" text="{mod11>/d/Ordertype}"  width="" class=""/>
-	</HBox>
-	</HBox>
-	<HBox>
-	<Label text="Action:" multiple="true" width="100%" class=""/>
-	
-	<HBox>
-	<Label text="{model>/priorityaction}"  width="" class=""/>
-	</HBox>
-	</HBox>
-	
-	<!-- <ComboBox selectedKey="{mod4>/lob2}" class="inctmang_lob1" width="90%"  selectionChange="onLOBselection">
-							<items>
-								<core:Item key="{mod11>/d/Ordertype}" text="{mod11>/d/Ordertype}" />
-							</items>
-						</ComboBox> -->
-	
- 	</l:Grid>
- 	
- 	<HBox>
-	<Label  text="{mod11>/d/Message}"  width="" class=""/></HBox>
- 	<Text text="CLICK OK TO SUBMIT THE DETAILS" class="congo2"/>
-   <Button text="OK" press="onloginclose" class="f"/>
-   </VBox>
-   <!-- <beginButton>
-   <Button class="dclose" text="close" press="onloginclose"/>
-   </beginButton> -->
-  </Dialog>
-    </core:FragmentDefinition>
+		<VBox >
+			<Image src="./images/checked.png" densityAware="false" width="20%"
+				class="dailog_image_class"></Image>
+							<Text text="Congratulation!" class="dailog_congo_class" />
+							</VBox>
+			<VBox class="dailog_user_class">
+				<l:Grid defaultSpan="L6 M12 S12">
+					<HBox class="">
+						<Label text="User Id:" width="100%" class="" />
+						<Label text="{mod2>/userId}" width="100%" class="" />
+					</HBox>
+
+
+					<HBox>
+						<Label text="Name:" multiple="true" width="100%" class="" />
+						<HBox>
+							<Label text="{mod2>/firstName}" width="" class="" />
+							
+						</HBox>
+					</HBox>
+
+					<HBox>
+						<Label text="Work Type:" multiple="true" width="100%" class="" />
+
+						<HBox>
+							<Label value="{mod4>ordrtyp}" text="{mod11>/d/Ordertype}"
+								width="" class="" />
+						</HBox>
+					</HBox>
+					<HBox>
+						<Label text="Action:" multiple="true" width="100%" class="" />
+
+						<HBox>
+							<Label text="{model>/priorityaction}" width="" class="" />
+						</HBox>
+					</HBox>
+
+					<!-- <ComboBox selectedKey="{mod4>/lob2}" class="inctmang_lob1" width="90%" 
+						selectionChange="onLOBselection"> <items> <core:Item key="{mod11>/d/Ordertype}" 
+						text="{mod11>/d/Ordertype}" /> </items> </ComboBox> -->
+
+				</l:Grid>
+
+				<HBox>
+					<Label text="{mod11>/d/Message}" width="" class="frag_message_class" />
+				</HBox>
+				<Text text="CLICK OK TO MOVE TO THE DASHBOARD" class="submit_clik_note_class" />
+				<Button text="OK" press="onloginclose" class="submit_btn_class" />
+			</VBox>
+			<!-- <beginButton> <Button class="dclose" text="close" press="onloginclose"/> 
+				</beginButton> -->
+	</Dialog>
+</core:FragmentDefinition>
