@@ -26,7 +26,6 @@
    <modules>
     <module>IncidentManagementRestWeb</module>
     <module>IncidentManagementService</module>
-    <module>IMUi</module>
   </modules>
   
 </project>

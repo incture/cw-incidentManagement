@@ -1,5 +1,5 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout">
-	<Dialog title="Incident Details" stretch="true">
+	<Dialog title="Incident Details" stretch="true" >
 				<VBox class="inctureCapexBox">
 						<Panel expandable="false" expanded="false" headerText="USER INFORMATION" width="auto" class="tabClass">
 							<l:Grid defaultSpan="L6 M12 S12">
