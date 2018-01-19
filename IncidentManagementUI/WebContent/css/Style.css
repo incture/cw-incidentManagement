@@ -101,7 +101,10 @@
 .inctmangUserinfoClass8{
 	font-family: Open Sans !important;
 	width: 10rem;
-    margin-left: 1.6rem !important;
+    margin-left: 3.5rem !important;
+}
+.user_id_frg{
+	margin-left: 1rem !important;
 }
 
 .inctmangCreatincdClass1{
@@ -134,14 +137,14 @@
     margin-left: 5.5rem !important;
 }
 .inctmang_Action{
-    margin-left: 5.4rem !important;
+    margin-left: 5.8rem !important;
 }
 .inctmang_Status{
     margin-left: 5.8rem !important;
 }
 
 .inctmang_group{
-    margin-left: 1.6rem !important;
+    margin-left: 2rem !important;
 }
 .inctmang_type2{
  margin-top: 1rem !important;
@@ -172,7 +175,7 @@
     margin-left: 2.3rem !important;
 }
 .inctmang_report_on{
-    margin-left: 3rem !important;
+    margin-left: 3.3rem !important;
 }
 
 .inctmang_craetebtn{
@@ -204,16 +207,16 @@ margin-left: 8.5rem !important;
 }
 .dailog_user_class{
 	margin-top: 2rem !important;
-	margin-left: 2rem !important;
+	margin-left: 2.5rem !important;
 }
 .frag_message_class{
 	margin-left: 3rem !important;
 }
 .submit_clik_note_class{
-	margin-left: 1.3rem !important;
+	margin-left: 1.1rem !important;
 }
 .submit_btn_class{
-	margin-left: 9rem !important;
+	margin-left: 8rem !important;
 }
 
 

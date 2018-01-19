@@ -13,20 +13,20 @@
 		<VBox >
 			<Image src="./images/checked.png" densityAware="false" width="20%"
 				class="dailog_image_class"></Image>
-							<Text text="Congratulation!" class="dailog_congo_class" />
+							<!-- <Text text="Congratulation!" class="dailog_congo_class" /> -->
 							</VBox>
 			<VBox class="dailog_user_class">
 				<l:Grid defaultSpan="L6 M12 S12">
 					<HBox class="">
 						<Label text="User Id:" width="100%" class="" />
-						<Label text="{mod2>/userId}" width="100%" class="" />
+						<Label text="{mod2>/userId}" width="100%" class="user_id_frg" />
 					</HBox>
 
 
 					<HBox>
 						<Label text="Name:" multiple="true" width="100%" class="" />
 						<HBox>
-							<Label text="{mod2>/firstName}" width="" class="" />
+							<Label text="{mod2>/firstName}" width="" class="user_id_frg" />
 							
 						</HBox>
 					</HBox>
@@ -36,14 +36,14 @@
 
 						<HBox>
 							<Label value="{mod4>ordrtyp}" text="{mod11>/d/Ordertype}"
-								width="" class="" />
+								width="" class="user_id_frg" />
 						</HBox>
 					</HBox>
 					<HBox>
 						<Label text="Action:" multiple="true" width="100%" class="" />
 
 						<HBox>
-							<Label text="{model>/priorityaction}" width="" class="" />
+							<Label text="{model>/priorityaction}" width="" class="user_id_frg" />
 						</HBox>
 					</HBox>
 
@@ -56,7 +56,7 @@
 				<HBox>
 					<Label text="{mod11>/d/Message}" width="" class="frag_message_class" />
 				</HBox>
-				<Text text="CLICK OK TO MOVE TO THE DASHBOARD" class="submit_clik_note_class" />
+				<!-- <Text text="CLICK OK TO MOVE TO THE DASHBOARD" class="submit_clik_note_class" /> -->
 				<Button text="OK" press="onloginclose" class="submit_btn_class" />
 			</VBox>
 			<!-- <beginButton> <Button class="dclose" text="close" press="onloginclose"/> 

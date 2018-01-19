@@ -14,7 +14,7 @@
 					<HBox>
 						<Label text="Name:" multiple="true" width="100%" class="inctureUserProfileLblClass1"/>
 						<HBox>
-							<Input value="{mod2>/firstName} {mod2>/lastName}" editable="false" width="83%" class="inctmangUserinfoClass2"/>
+							<Input value="{mod2>/firstName} {mod2>/lastName}" editable="false" width="103%" class="inctmangUserinfoClass2"/>
 						</HBox>	
 					</HBox>
 					<HBox>
@@ -23,24 +23,21 @@
 					</HBox>
 					<HBox>
 						<Label text="Mobile:" multiple="true" width="100%" class="inctureUserProfileLblClass1"/>
-						<Input value="{mod2>/userMobile}" editable="false" width="84%" class="inctmangUserinfoClass4"/>
+						<Input value="{mod2>/userMobile}" editable="false" width="105%" class="inctmangUserinfoClass4"/>
 					</HBox>
 					<HBox>
 						<Label text="Cost Ctr:" multiple="true" width="100%" class="inctureUserProfileLblClass1"/>
 						<Input value="{mod2>/userCostctr}" editable="false" width="105%" class="inctmangUserinfoClass5"/>
 					</HBox>
-					<HBox>
+					<!-- <HBox>
 						<Label text="Group:" multiple="true" width="100%" class="inctureUserProfileLblClass1"/>
-						<Input value="{mod2>/userGroup}" editable="false" width="83%" class="inctmangUserinfoClass6"/>
-					</HBox>
+						<Input value="{mod2>/userGroup}" editable="false" width="123%" class="inctmangUserinfoClass6"/>
+					</HBox> -->
 					<HBox>
 						<Label text="Reported By :" multiple="true" width="100%" class="inctureUserProfileLblClass1"/>
-						<Input value="Harsha" width="123%" editable="false" class="inctmangUserinfoClass7"/>
+						<Input value="{mod2>/firstName} {mod2>/lastName}" width="125%" editable="false" class="inctmangUserinfoClass7"/>
 					</HBox>
-					<HBox>
-						<Label text="Assigned To:" multiple="true" width="100%" class="inctureUserProfileLblClass1"/>
-						<Input value="Harsha" width="97%" editable="false" class="inctmangUserinfoClass8"/>
-					</HBox>
+					  
 				</l:Grid>
 			</Panel>
 		</VBox>
@@ -95,39 +92,51 @@
 						</Input>
 					</HBox>
 					<HBox>
+						<Label text="Assigned Group:" tooltip=""  class="inctureUserProfileLblClass3"></Label>
+						<ComboBox selectedKey="{mod4>/Assignd_grp}" change="onChange_assgnGrp" items="{model_grp>/}" class="inctmang_group" width="106%" showSecondaryValues="true">
+							<core:Item key="{model_grp>groupId}" text="{model_grp>groupName}"/>
+							
+						</ComboBox>
+					</HBox>
+					<HBox>
 						<Label text="Status:" tooltip="" class="inctureUserProfileLblClass3"></Label>
 						<Input value="Open" editable="false" class="inctmang_Status" width="93%" showSecondaryValues="true"/> 
 							<!-- <ComboBox  width="82%" selectedKey="{mod4>/Assignd_grp}" class="inctmang_Status" showSecondaryValues="true">
 							<core:Item key="Open" text="Open"/> -->
 							
 						<!-- </ComboBox> -->
-					</HBox>			
+					</HBox>	
 					<HBox>
-						<Label text="Assigned Group:" tooltip="" class="inctureUserProfileLblClass3"></Label>
-						<ComboBox selectedKey="{mod4>/Assignd_grp}" class="inctmang_group" width="100%" showSecondaryValues="true">
+						<Label text="Assigned To:" multiple="true" width="100%" class="inctureUserProfileLblClass1"/>
+						<!-- <Input value="FName1 " width="107%" editable="false" class="inctmangUserinfoClass8"/> -->
+						<!--  <Input value="{model_assgngrp>/firstName} " width="107%" editable="false" class="inctmangUserinfoClass8"/> -->
+						 <ComboBox selectedKey="{model_assgngrp>/firstName}" class="inctmangUserinfoClass8"  width="92%" items="{model_assgngrp>/}">
+							<items>
+							<core:Item key="{model_assgngrp>firstName}" text="{model_assgngrp>firstName} "/>
 							
-							<core:ListItem key="Group 1" text="Group 1"/>
-							<core:ListItem key="Group 2" text="Group 2"/>
-							<core:ListItem key="Group 3" text="Group 3"/>
+							</items>
 						</ComboBox>
-					</HBox>
+					</HBox>		
+					
 					<HBox>
 						<Label text="Assign On:" tooltip="" class="inctureUserProfileLblClass3"></Label>
-						<Input value="{path:'model>/todaydate',formatter:'com.incture.util.formatter.date_display'}"  class="inctmang_assdt" width="102%"   />
+						<Input value="{path:'model>/todaydate',formatter:'com.incture.util.formatter.date_display'}"  class="inctmang_assdt" width="101%"   />
 					</HBox>
-					<HBox>
-						<Label text="Reported On:" tooltip="" class="inctureUserProfileLblClass3"></Label>
-						<Input value="{path:'model>/todaydate',formatter:'com.incture.util.formatter.date_display'}"  class="inctmang_report_on"   width="106%"  />
-					</HBox>
+					
 					<HBox>
 						<Label text="Basic Start Date:" required="true" tooltip="" class="inctureUserProfileLblClass3" ></Label>
 					<HBox>	<DatePicker   class="inctmang_startdt" width="80%" id="date_start" valueFormat="yyyy-MM-ddT" value="{model>/startdate}" change="startdate" placeholder="Enter Date..." displayFormat="MMM d, y"/>
 						<TimePicker  minutesStep="15"   width="70%" valueFormat="HH:mm:ss" value="{model>/starttime}" change="startdate" placeholder="Enter Time..." displayFormat=" HH:mm"/>
 					</HBox></HBox>
 					<HBox>
+						<Label text="Reported On:" tooltip="" class="inctureUserProfileLblClass3"></Label>
+						<Input value="{path:'model>/todaydate',formatter:'com.incture.util.formatter.date_display'}"  class="inctmang_report_on"   width="107%"  />
+					</HBox>
+					
+					<HBox>
 						<Label text="Basic Finish Date:" required="true" tooltip="" class="inctureUserProfileLblClass3"></Label>
 					<HBox>	<DatePicker value="{mod4>/finishdt}" valueFormat="yyyy-MM-ddT" class="inctmang_type1" width="80%" placeholder="Enter Date..." displayFormat="MMM d, y"/>
-						<TimePicker minutesStep="15" value="{mod4>/finishtm}" valueFormat="HH:mm:ss"   width="60%" placeholder="Enter Time..." displayFormat=" HH:mm"/>
+						<TimePicker minutesStep="15" value="{mod4>/finishtm}" valueFormat="HH:mm:ss"   width="70%" placeholder="Enter Time..." displayFormat=" HH:mm"/>
 					</HBox></HBox>
 					
 				</l:Grid>

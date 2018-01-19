@@ -3,6 +3,7 @@
 	controllerName="com.incture.controller.dashboard" xmlns:html="http://www.w3.org/1999/xhtml">
 	<Page showHeader="false">
 		<content>
+		
 			<VBox class="inctureCapexBox">
 				<Panel expanded="false" headerText="Search" width="auto"
 					class="tabClass">
@@ -11,7 +12,7 @@
 							<Label text="Line of business" width="100%"
 								class="inctureUserProfileLblClss1" />
 							<ComboBox selectedKey="{DModelPost>/lob}"
-								showSecondaryValues="true" id="LineOfBusiness" class="como1">
+								showSecondaryValues="true" id="LineOfBusiness" class="Dcombo1">
 								<core:Item key="Transportation" text="Transportation" />
 								<core:Item key="Delivery unit" text="Delivery Unit" />
 								<core:Item key="Plant" text="Plant" />
@@ -21,7 +22,7 @@
 						<HBox>
 							<Label text="Status" width="100%" class="inctureUserProfileLblClss1"></Label>
 							<ComboBox selectedKey="{DModelPost>/status}"
-								showSecondaryValues="true" id="Status" class= "como1">
+								showSecondaryValues="true" id="Status" class= "Dcombo1">
 								<core:ListItem key="OPEN" text="OPEN" />
 								<core:ListItem key="In Progress" text="In Progress" />
 								<core:ListItem key="Close" text="Close" />
@@ -29,7 +30,7 @@
 						</HBox>
 						<HBox>
 							<Label text="Priority" width="100%" class="inctureUserProfileLblClss1"></Label>
-							<ComboBox selectedKey="{DModelPost>/priority}" class="como2"
+							<ComboBox selectedKey="{DModelPost>/priority}" class="Dcombo2"
 								showSecondaryValues="true" id="Priority">
 								<core:Item key="Urgent" text="Urgent" />
 								<core:Item key="Medium" text="Medium" />

@@ -30,7 +30,7 @@ sap.ui.define([
 			var DHeader = {
 					"Content-Type" : "application/json; charset=utf-8"
 				};
-			var Geturl= "http://localhost:9014/SpringRestEx/allincidents";
+			var Geturl= "http://localhost:8501/SpringRestEx/allincidents";
 			oView.setBusy(true);
 
 				IncidentModel.loadData(Geturl, null, true,
@@ -41,6 +41,59 @@ sap.ui.define([
 			oView.setBusy(false);	
 		},
 		
+		
+		incidentAction : function(oEvent) {
+			//console.log("inside incidentaction");
+			var oHeader = {
+				"Content-Type" : "application/json; charset=utf-8"
+			};
+			var oView = this.getView();
+			var that = this;
+			oView.setBusy(true);
+			
+			if (!this.oDialog) {
+				this.oDialog = sap.ui.xmlfragment("com.incture.fragments.screen2frag", this);
+				oView.addDependent(this.oDialog);
+			}
+			
+			var ApprovalModel = new sap.ui.model.json.JSONModel();
+			var rowID = oEvent.getSource().getText().toString();
+			var Table_url = "http://localhost:8501/SpringRestEx/getapproval/";
+
+			var Table_urlFinal = Table_url + rowID;
+			oView.setModel(ApprovalModel, "ApprovalModel");
+			ApprovalModel.loadData(Table_urlFinal, null, true,"GET", false, false, oHeader);
+			
+			ApprovalModel.attachRequestCompleted(function(oEvent) {
+				//oView.setModel(ApprovalModel, "ApprovalModel");
+				//console.log("attached req com");
+				/*if (!that.oDialog) {
+					that.oDialog = sap.ui.xmlfragment(
+							"com.incture.fragments.frag", that);
+					 var oView = that.getView();
+					oView.addDependent(that.oDialog);
+					that.oDialog.open();
+				}*/
+				that.oDialog.open();
+				ApprovalModel.refresh();
+				oView.setBusy(false);
+			});
+
+			ApprovalModel.attachRequestFailed(function(oEvent) {
+				ApprovalModel.refresh();
+			});
+			
+
+		},
+
+		onclose : function(oEvent) {
+			
+			// var oView = this.getView();
+//this.oEvent.getSource().getParent().close();
+			this.oDialog.close();
+		},
+		
+		/*
 		incidentAction : function(oEvent) {
 			console.log("inside incidentaction");
 			var IHeader = {
@@ -51,7 +104,7 @@ sap.ui.define([
 			oView.setBusy(true);
 			var ApprovalModel = new sap.ui.model.json.JSONModel();
 			var rowID = oEvent.getSource().getText().toString();
-			var Table_url = "http://localhost:9014/SpringRestEx/getapproval/";
+			var Table_url = "http://localhost:8501/SpringRestEx/getapproval/";
 
 			var Table_urlFinal = Table_url + rowID;
 
@@ -84,21 +137,22 @@ sap.ui.define([
 			date.setUTCSeconds(date_in);
 			return date;
 		},
-		onclose: function(oEvent){
-			oEvent.getSource().getParent().getParent().destroy();
+		onclose_apprvl: function(oEvent){
+			this.oDialog.close();
+			//this.getOwnerComponent().getRouter().navTo("dashboard");
 							},
 
 							//dailog open
 							
-							/*onlinkclick: function(oEvent) {
+							onlinkclick: function(oEvent) {
 
 								this.ologindailog().open(oEvent.getSource());
 							},
 
 							onloginclose: function(oEvent) {
 								this.getOwnerComponent().getRouter().navTo("dashboard");
-							},*/
-
+							},
+*/
 
 		
 

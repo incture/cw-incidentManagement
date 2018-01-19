@@ -122,7 +122,7 @@ sap.ui.define([
 			mod2.attachRequestCompleted(function(oEvent) {
 				oView.setModel(mod2, "mod2");
 			});
-			var baseurl2 = "http://localhost:8080/SpringRestEx/getuser/USR0001.json";
+			var baseurl2 = "http://localhost:8501/SpringRestEx/getuser/USR0001.json";
 
 			console.log(baseurl2);
 			mod2.loadData(baseurl2, true, "GET", false, false);
@@ -132,7 +132,54 @@ sap.ui.define([
 			//
 
 			this.todaydate(); //date thing
+			
+			
+			//rest url for the users groups (assgn grp)
+			
+			var model_grp = new sap.ui.model.json.JSONModel();
+			var oView = this.getView();
+			model_grp.attachRequestCompleted(function(oEvent) {
+				oView.setModel(model_grp, "model_grp");
+			});
+			var baseurl21 = "http://localhost:8501/SpringRestEx/allgroups";
+
+			console.log(baseurl21);
+			model_grp.loadData(baseurl21, true, "GET", false, false);
+
+			this.getView().setModel(model_grp, "model_grp");
+			console.log("model_grp loaded");
+			//
+
 		},
+		
+		//here calling assignd url by concating assing group
+		onChange_assgnGrp: function(oEvent){
+			var model_assgngrp = new sap.ui.model.json.JSONModel();
+			var oView = this.getView();
+			model_assgngrp.attachRequestCompleted(function(oEvent) {
+				oView.setModel(model_assgngrp, "model_assgngrp");
+				model_assgngrp.refresh();
+			});
+			var locav = true;
+
+			try{
+				var locname = oEvent.getSource().getSelectedKey();
+			}
+			catch(err){
+				locav=false;
+			}
+			if(locav){
+				var  baseurl31="http://localhost:8501/SpringRestEx/getuserbygroupid/"+locname+"";
+			}
+			console.log(baseurl31);
+			model_assgngrp.loadData(baseurl31, true, "GET", false, false);
+
+		//	this.getView().setModel(model_assgngrp, "model_assgngrp");
+			console.log("model_assgngrp loaded");
+			//
+		},
+		
+		//
 
 
 
@@ -455,10 +502,11 @@ sap.ui.define([
 			var mod2 =this.getView().getModel("mod2");
 			var mod11 =this.getView().getModel("mod11");
 			var model =this.getView().getModel("model");
+			var model_assgngrp =this.getView().getModel("model_assgngrp");
 			// var mod11 =this.getView().getModel("mod11");
 //			var changedt= model.getData().startdate;
 
-			var url = "http://localhost:8080/SpringRestEx/create";//rest post url
+			var url = "http://localhost:8501/SpringRestEx/create";//rest post url
 			//var url = "http:///172.16.30.238:8080/SpringRestEx/create";
 
 			var obj =	{
@@ -467,16 +515,16 @@ sap.ui.define([
 						"incidentId": null,
 						"incidentLob": mod4.getData().lob,
 						"incidentType": mod4.getData().type,
-						"incidentAction":mod4.getData().type,
+						"incidentAction":model.getData().priorityaction,
 						"incidentDescription": mod4.getData().Desrpt,
 						"incidentPriority": mod4.getData().Priorty,
 						"createdDate": model.getData().startdate+model.getData().starttime,
 						"finishDate": mod4.getData().finishdt+ mod4.getData().finishtm,
 						"incidentStatus": "OPEN",
-						"reportedDate": model.getData().todaydate,
+						"reportedDate": "1-19-2018T11:17:16",//model.getData().todaydate,
 						"assignedGroup": mod4.getData().Assignd_grp,
-						"assignedTo": "Harsha",
-						"assignedDate": model.getData().todaydate
+						"assignedTo": model_assgngrp.getData().firstName,//"FName1",//
+						"assignedDate": "1-19-2018T11:17:16"//model.getData().todaydate
 					},
 					"wo": {
 						"workId": null,

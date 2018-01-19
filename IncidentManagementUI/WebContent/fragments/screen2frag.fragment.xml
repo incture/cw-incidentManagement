@@ -35,7 +35,7 @@
 								</HBox>
 								<HBox>
 									<Label text="Assigned To:" width="100%" class="inctureUserProfileLblClass1"/>
-									<Input value="{ApprovalModel>/incident/assignedTo}" width="97%" editable="false" class="inctmangUserinfoClass8"/>
+									<Input value="{ApprovalModel>/incident/assignedTo}" width="97%" editable="false" class="DinctmangUserinfoClass8"/>
 								</HBox> 
 							</l:Grid>
 						</Panel>
@@ -46,20 +46,20 @@
 							<l:Grid defaultSpan="L4 M12 S12">
 							<HBox>
 									<Label text="Incident Id:" width="100%" class="inctureUserProfileLblClass1"/>
-									<Input value="{ApprovalModel>/incident/incidentId}" editable="false" width="85%" class="inctmangCreatincdClass1"/></HBox> 
+									<Input value="{ApprovalModel>/incident/incidentId}" editable="false" width="85%" class="AinctmangCreatincdClass1"/></HBox> 
 								 <HBox>
-									<Label text="Line Of Business:" tooltip="" class="inctureUserProfileLblClass1"></Label>
-									<Input value="{ApprovalModel>/incident/incidentLob}" editable="false" width="85%" class="inctmangCreatincdClass1"/>
+									<Label text="Line Of Business:" class="inctureUserProfileLblClass1"></Label>
+									<Input value="{ApprovalModel>/incident/incidentLob}" editable="false" width="85%" class="AinctmangCreatincdClass1"/>
 								</HBox> 
 							 	<HBox>
 									<Label text="Type Of:" class="inctureUserProfileLblClass1"></Label>
-									<Input value="{ApprovalModel>/incident/incidentType}" editable="false" width="85%" class="inctmangCreatincdClass1"/>
+									<Input value="{ApprovalModel>/incident/incidentType}" editable="false" width="85%" class="AinctmangCreatincdClass1"/>
 								</HBox> 
 							</l:Grid>
 							<l:Grid defaultSpan="L12 M12 S12">
 								<VBox class="sapUiTinyMarginBottom">
 									<Label text="Description:"  width="100%" class="inctureUserProfileLblClass"/>
-									<TextArea editable="false" value="{ApprovalModel>/incident/incidentDescription}" height="100px" width="98%" id="textAreaWithoutBinding1"
+									<TextArea editable="false" value="{ApprovalModel>/incident/incidentDescription}" height="100px" width="98%"
 										/>
 									<layoutData>
 											<FlexItemData growFactor="2"/>
@@ -69,47 +69,47 @@
 							<l:Grid defaultSpan="L6 M12 S12">
 						 	<HBox>
 										<Label text="Equipment:"  width="100%" class="inctureUserProfileLblClass3"/>
-								<Input value="{ApprovalModel>/wo/workEquipment}" editable="false" width="85%" class="inctmang_equi"/>
+								<Input value="{ApprovalModel>/wo/workEquipment}" editable="false" width="93%" class="Ainctmang_equi"/>
 									
 										
 								</HBox>
 								<HBox>
 									<Label text="Priority:" class="inctureUserProfileLblClass3"></Label>
-									<Input value="{ApprovalModel>/incident/incidentPriority}" editable="false" width="80%" class="inctmang_priority"/>
+									<Input value="{ApprovalModel>/incident/incidentPriority}" editable="false" width="78%" class="Ainctmang_priority"/>
 								</HBox>
 								<HBox>
 									<Label text="Action:" tooltip="" class="inctureUserProfileLblClass3"></Label>
-									<Input value="{ApprovalModel>/incident/incidentAction}" editable="false" width="85%" class="inctmang_Action"/>
+									<Input value="{ApprovalModel>/incident/incidentAction}" editable="false" width="83%" class="Ainctmang_Action"/>
 								</HBox>
 								<HBox>
 									<Label text="Status:" tooltip="" class="inctureUserProfileLblClass3"></Label>
-									<Input value="{ApprovalModel>/incident/incidentStatus}" editable="false"  class="inctmang_Status" width="80%"/>
+									<Input value="{ApprovalModel>/incident/incidentStatus}" editable="false"  class="Ainctmang_Status" width="77%"/>
 									
 								</HBox>
 								<HBox>
 									<Label text="Work Center:" tooltip=""  class="inctureUserProfileLblClass3"></Label> 
-	                                <Input value="{ApprovalModel>/wo/workCenter}" editable="false" width="99%" class="inctmang_group"/>
+	                                <Input value="{ApprovalModel>/wo/workCenter}" editable="false" width="99%" class="Ainctmang_group"/>
 	                                
 								</HBox>
 								<HBox>
 									<Label text="Assigned Group:" tooltip="" class="inctureUserProfileLblClass3"></Label>
-									<Input value="{ApprovalModel>/incident/assignedGroup}" editable="false" width="95%" class="inctmang_group"/>
+									<Input value="{ApprovalModel>/incident/assignedGroup}" editable="false" width="95%" class="Ainctmang_group"/>
 								</HBox>
 								<HBox>
 									<Label text="Assign Date On:" tooltip="" class="inctureUserProfileLblClass3"></Label>
-									<Input value="{ApprovalModel>/incident/assignedDate}" editable="false" width="110%" class="assign_dt"/>
+									<Input value="{ApprovalModel>/incident/assignedDate}" editable="false" width="110%" class="Aassign_dt"/>
 								</HBox>
 								<HBox>
 									<Label text="Reported On:" tooltip="" class="inctureUserProfileLblClass3"></Label>
-									<Input value="{ApprovalModel>/incident/reportedDate}" editable="false" width="85%" class="inctmang_report_on"/>
+									<Input value="{ApprovalModel>/incident/reportedDate}" editable="false" width="85%" class="Ainctmang_report_on"/>
 								</HBox>
 								<HBox>
 									<Label text="Basic Start Date:" tooltip="" class="inctureUserProfileLblClass3"></Label>
-									<Input value="{path:'ApprovalModel>/incident/createdDate',formatter:'.dateConverter'}" editable="false" width="110%" class="basic_start"/>
+									<Input value="{ApprovalModel>/incident/createdDate}" editable="false" width="106%" class="Abasic_start"/>
 								</HBox>
 								<HBox>
 									<Label text=" Basic Finish Date:" tooltip="" class="inctureUserProfileLblClass3"></Label>
-									<Input value="{path:'ApprovalModel>/incident/finishDate',formatter:'.dateConverter'}"  editable="false" width="93%" class="inctmang_basic_finish_dt"/>
+									<Input value="{ApprovalModel>/incident/finishDate}"  editable="false" width="93%" class="Ainctmang_basic_finish_dt"/>
 								</HBox> 
 							</l:Grid>
 						</Panel>
@@ -120,61 +120,61 @@
 							<l:Grid defaultSpan="L4 M12 S12">
 							 	<HBox>
 									<Label text="Work Equipment:" tooltip="" class="inctureUserProfileLblClass3"></Label>
-									<Input value="{ApprovalModel>/wo/workEquipment}" editable="false" width="93%" class="workEq"/>
+									<Input value="{ApprovalModel>/wo/workEquipment}" editable="false" width="93%" class="AworkEq"/>
 								</HBox>
 								<HBox>
 									<Label text="Work Center:" tooltip="" class="inctureUserProfileLblClass3"></Label>
-									<Input value="{ApprovalModel>/wo/workCenter}" editable="false" width="93%" class="workCe"/>
+									<Input value="{ApprovalModel>/wo/workCenter}" editable="false" width="93%" class="AworkCe"/>
 								</HBox>
 								<HBox>
 									<Label text="Func Locat:" tooltip="" class="inctureUserProfileLblClass3"></Label>
-									<Input value="{ApprovalModel>/wo/funcLoc}" editable="false" width="85%" class="funcLo"/>
+									<Input value="{ApprovalModel>/wo/funcLoc}" editable="false" width="85%" class="AfuncLo"/>
 								</HBox>
 								<HBox>
 									<Label text="Assembly:" tooltip="" class="inctureUserProfileLblClassaasmb1"></Label>
-									<Input value="{ApprovalModel>/wo/assembly}" editable="false" width="85%" class="assembly"/>
+									<Input value="{ApprovalModel>/wo/assembly}" editable="false" width="85%" class="Aassembly"/>
 								</HBox>
 								<HBox>
 									<Label text="Control Key:" tooltip="" class="inctureUserProfileLblClass3"></Label>
-									<Input value="{ApprovalModel>/wo/controlKey}" editable="false" width="85%" class="controlKey"/>
+									<Input value="{ApprovalModel>/wo/controlKey}" editable="false" width="88%" class="AcontrolKey"/>
 								</HBox>
 								<HBox>
 									<Label text="Activity Type:" tooltip="" class="inctureUserProfileLblClass3"></Label>
-									<Input value="{ApprovalModel>/wo/activityType}" editable="false" width="85%" class="activityTy"/>
+									<Input value="{ApprovalModel>/wo/activityType}" editable="false" width="85%" class="AactivityTy"/>
 								</HBox>
 								<HBox>
 									<Label text="Planning Group:" tooltip="" class="inctureUserProfileLblClass3"></Label>
-									<Input value="{ApprovalModel>/wo/planningGroup}" editable="false" width="85%" class="planningGrp"/>
+									<Input value="{ApprovalModel>/wo/planningGroup}" editable="false" width="88%" class="AplanningGrp"/>
 								</HBox>
 								
 									<HBox>
 									<Label text="Work Type:" tooltip="" class="inctureUserProfileLblClass3"></Label>
-									<Input value="{ApprovalModel>/wo/workType}" editable="false" width="85%" class="workTy"/>
+									<Input value="{ApprovalModel>/wo/workType}" editable="false" width="85%" class="AworkTy"/>
 								</HBox>
 								<HBox>
 									<Label text="Planning Plant:" tooltip="" class="inctureUserProfileLblClass3"></Label>
-									<Input value="{ApprovalModel>/wo/Pt1}" editable="false" width="85%" class="planning_plt" />
+									<Input value="{ApprovalModel>/wo/planningPlant}" editable="false" width="90%" class="Aplanning_plt" />
 								</HBox>
 								<HBox>
 									<Label text="Business Area:" tooltip="" class="inctureUserProfileLblClass3"></Label>
-									<Input value="{ApprovalModel>/wo/busArea}" editable="false" width="85%" class="businessAr"/>
+									<Input value="{ApprovalModel>/wo/busArea}" editable="false" width="85%" class="AbusinessAr"/>
 								</HBox>  
 							</l:Grid>
 						</Panel>
 					</VBox>
 					<HBox>
 						<HBox>
-							<Label text="Comments:" class="Comment"></Label>
-							<TextArea showExceededText="true" editable="true" width="150%" class="inctmangCreatincdClass1"/>
+							<Label text="Comments:" class="AComment"></Label>
+							<TextArea showExceededText="true" editable="true" width="150%" class="AinctmangCreatincdClass1"/>
 						</HBox>
-						<Button text="Approve" press="onCreateClick" type="Emphasized" class="inctmang_approve"/>
+						<Button text="Approve" press="onCreateClick" type="Emphasized" class="Ainctmang_approve"/>
 						<Button text="Reject" press="onCancelClick" type="Reject" class="sapUiSmallMarginEnd"/></HBox>
 				
 				 <VBox class="vbox">
     		
-   <Button text="Close" press="onclose" class="inctmang_create"/>
    </VBox>
    
+      <Button text="Close" press="onclose" class="Ainctmang_create"/>
    
    
 				

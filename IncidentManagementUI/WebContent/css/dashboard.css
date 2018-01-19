@@ -1,9 +1,9 @@
-.combo1{
+.Dcombo1{
 	margin-left: 2rem !important;
 	
 }
 
-.combo2{
+.Dcombo2{
 	margin-left: 5.7rem !important;
 	
 }
@@ -11,3 +11,128 @@
 .searchMargin{
 	margin-left: 5.5rem !important;
 }
+
+.red{
+	
+	background-color: #FABD64 !important; 
+}
+.green{
+	background-color: white !important; 
+}
+
+.workEq{
+	margin-left: 1.5rem !important;
+}
+.workTy{
+margin-left:2rem!important;
+}
+
+.businessAr{
+	margin-left:2rem !important;
+}
+
+.workCe {
+	margin-left:1.2rem !important;
+}
+
+.funcLo {
+	margin-left:2rem !important;
+}
+.assembly{
+	margin-left:2rem !important;
+}
+.controlKey{
+		margin-left:1.7rem !important;
+
+}
+.activityTy{
+		margin-left:1.5rem !important;
+
+}
+.planningGrp{
+		margin-left:1.5rem !important;
+
+}
+
+.Comment{
+	margin-left:5rem !important;
+	margin-top:1rem !important;
+}
+
+.commentBox{
+	margin-left:1rem !important;
+
+}
+
+.planning_plnt{
+	font-family: Open Sans !important;
+	width: 10rem;
+    margin-left: .75rem !important;
+	
+}
+
+
+.Dpriority{
+    margin-left: 5.5rem !important;
+} 
+
+.Dassdt{
+    margin-left: 1.5rem !important;
+} 
+
+.Dequi{
+    margin-left: 3.3rem !important;
+} 
+.DAction{
+    margin-left: 4.9rem !important;
+}
+.DStatus{
+    margin-left: 6.1rem !important;
+}
+
+.assign_dt{
+	font-family: Open Sans !important;
+	width: 10.3rem;
+    margin-left: .75rem !important;
+}
+
+.Dgroup{
+    margin-left: 2.3rem !important;
+}
+
+.Dreport_on{
+    margin-left: 3.6rem !important;
+}
+
+.Dbasic_finish_dt{
+    margin-left: 2.1rem !important;
+}
+
+.Dinctmang_create{
+	
+	    margin-left: 6rem !important;
+
+}
+
+.Dequi{
+    margin-left: 3.3rem !important;
+} 
+
+.DinctmangCreatincdClass1{
+	font-family: Open Sans !important;
+	width: 5rem;
+    margin-left: .5rem !important;
+}
+
+
+
+.DinctmangUserinfoClass8{
+		font-family: Open Sans !important;
+	width: 10rem;
+    margin-left: 2.75rem !important;
+}
+
+
+
+
+
