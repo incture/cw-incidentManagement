@@ -30,7 +30,7 @@ sap.ui.define([
 			var DHeader = {
 					"Content-Type" : "application/json; charset=utf-8"
 				};
-			var Geturl= "http://localhost:8501/SpringRestEx/allincidents";
+			var Geturl= "/IncidentManagementWeb/allincidents";
 			oView.setBusy(true);
 
 				IncidentModel.loadData(Geturl, null, true,
@@ -58,7 +58,7 @@ sap.ui.define([
 			
 			var ApprovalModel = new sap.ui.model.json.JSONModel();
 			var rowID = oEvent.getSource().getText().toString();
-			var Table_url = "http://localhost:8501/SpringRestEx/getapproval/";
+			var Table_url = "/IncidentManagementWeb/getapproval/";
 
 			var Table_urlFinal = Table_url + rowID;
 			oView.setModel(ApprovalModel, "ApprovalModel");

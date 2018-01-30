@@ -19,6 +19,8 @@ sap.ui.define([
 			this._router = oComponent.getRouter();
 			this._router.getRoute("dashboard").attachPatternMatched(this._routePatternMatched, this);
 			
+			var ChartModel = new sap.ui.model.json.JSONModel();
+			this.getView().setModel(ChartModel,"ChartModel");
 			var SModel = new sap.ui.model.json.JSONModel();
 			this.getView().setModel(SModel, "SModel");
 			SModel.loadData("./model/DBoard.json");
@@ -40,39 +42,138 @@ sap.ui.define([
 			var DModel = new sap.ui.model.json.JSONModel();
 			this.getView().getModel("DModel");
 			this.getView().setModel(DModel, "DModel");
+			var ReporterIncidentModel = new sap.ui.model.json.JSONModel();
+			var oView = this.getView();
+			var oHeader = {
+					"Content-Type" : "application/json; charset=utf-8"
+				};
+				// url to be changed to the new reporter incidents, open 
+			var reporterUrl= "/IncidentManagementWeb/allincidents";
+			oView.setBusy(true);
+
+				ReporterIncidentModel.loadData(reporterUrl, null, true,
+						"GET", true, true, oHeader);
+
+			oView.setModel(ReporterIncidentModel, "ReporterIncidentModel");
+			oView.setBusy(false);	
+		
 			
 			
 		},
 		
-		onSearch : function() {
+		onSearch : function(oEvent) {
 			var that = this;
 			var oView = this.getView();
 			var DHeader = {
 				"Content-Type" : "application/json; charset=utf-8"
 			};
 			var DModelPost = this.getView().getModel("DModelPost");
-			var url = "http://localhost:8501/SpringRestEx/search";
+			var url = "/IncidentManagementWeb/search";
 
 			/*
 			 * http://localhost:8413/SpringRestEx/search
-			 */var DModel = this.getView().getModel("DModel");
+			 */
+			 var DModel = this.getView().getModel("DModel");
+			 
+			 
+		  var lob = this.getView().byId("LineOfBusiness").getSelectedKey();
+          var priority = this.getView().byId("Priority").getSelectedKey();
+          var status = this.getView().byId("Status").getSelectedKey();
+
 			var obj = {
-				"lineOfBusiness" : DModelPost.getData().lob,
-				"priority" : DModelPost.getData().priority,
-				"status" : DModelPost.getData().status
+				"lineOfBusiness" : lob,
+				"priority" : priority,
+				"status" : status
 			};
+			
+			
 			var data = JSON.stringify(obj);
 			console.log("xyz");
 			this.getView().setBusy(true);
 			DModelPost.attachRequestCompleted(function(oEvent) {
-				console.log("inside completed")
+				console.log("inside completed");
 				oView.setBusy(false);
 				console.log(oEvent.getSource().getData());
-				DModelPost.refresh();
-			});
+				var c = [];
+				var a = DModelPost.getData();
+				var i=0 ;
+				for(i=0; i<a.length; i++)
+				{
+					c.push(a[i].incidentPriority);
+				}
+			//	console.log(c)
+				
+				var obj2 = {};
+				obj2['c']=c;
+				
+			
+			
+var low=0 ;
+var medium=0;
+var high =0;
+var critical =0;
+for(i=0;i<c.length;i++){
+	
+			if(c[i] === "Medium"){
+medium++;
+}
+			if(c[i] === "Low"){
+				low++;
+			}
+			if(c[i] === "High"){
+high++;
+}
+			if(c[i] === "Critical"){
+critical++;
+}
+		
+			}
+/*	c.filter(function(obj2, i, c){
+					if(c[i] === "High"){
+						high = high + 1;
+					}else if(c[i] === "Medium"){
+						medium = medium + 1;
+					}else if(c[i] === "Low"){
+						low = low + 1;
+					}else if(c[i] === "Critical"){
+						critical = critical + 1;
+					}
+				});
+				*/
+		var oLowPriorObj = {
+			priority: "Low",
+			value: low
+		};
+		var oMediumPriorObj = {
+			priority: "Medium",
+			value: medium
+		};
+		var oHighPriorObj = {
+			priority: "High",
+			value: high
+		};
+		var oCriticalPriorObj = {
+			priority: "Critical",
+			value: critical
+		};
+		 
+		var oArray = [oLowPriorObj, oMediumPriorObj, oHighPriorObj, oCriticalPriorObj];
+		 var oData={};
+		 
+		 oData['oData']=oArray;
+		 
+
+ //console.log(low,medium,high,critical);
+ 
+ 			var ChartModel =oView.getModel("ChartModel");
+			ChartModel.setProperty("/oData", oData);
+			
+//old code resumes
+/*				DModelPost.refresh();
+*/			});
 			DModelPost.attachRequestFailed(function(oEvent) {
-				DModelPost.refresh();
-			});
+/*				DModelPost.refresh();
+*/			});
 			DModelPost.loadData(url, data, true, "POST", false,
 					false, DHeader);
 			/*
@@ -85,8 +186,14 @@ sap.ui.define([
 			 * });
 			 * 
 			 * DModelGet.attachRequestFailed(function(oEvent) {
-			 * DModel.refresh(); });
+			 * DModel.refresh(); })
 			 */
+			 
+			 
+			 
+			 //CHARTS
+			 
+			 
 		},
 
 		incidentAction : function(oEvent) {
@@ -105,7 +212,7 @@ sap.ui.define([
 			
 			var ApprovalModel = new sap.ui.model.json.JSONModel();
 			var rowID = oEvent.getSource().getText().toString();
-			var Table_url = "http://localhost:8501/SpringRestEx/getapproval/";
+			var Table_url = "/IncidentManagementWeb/getapproval/";
 
 			var Table_urlFinal = Table_url + rowID;
 			oView.setModel(ApprovalModel, "ApprovalModel");

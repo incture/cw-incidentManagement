@@ -1,3 +1,34 @@
+.a{
+	
+	width:8rem !important;
+		margin-top:1rem !important;
+
+}
+
+.b{
+	width:15rem !important;
+	left-margin: 2rem !important;
+	
+}
+
+.d{
+	width:5rem !important;
+		margin-top:1rem !important;
+
+}
+.c{
+	width:10rem !important;
+	left-margin: 2rem !important;
+}
+
+.e{
+	width:6rem !important;
+		margin-top:1rem !important;
+
+}
+
+
+
 .Dcombo1{
 	margin-left: 2rem !important;
 	
@@ -8,20 +39,16 @@
 	
 }
 
-.pqr{
-	color:white;
-}
-
 .searchMargin{
-	margin-left: 5.5rem !important;
+	margin-left: 5rem !important;
 }
 
 .red{
 	
-	background-color: #FABD64 !important; 
+	background-color: #E28780 !important; 
 }
 .green{
-	background-color: white !important; 
+	background-color: #65ABF9 !important; 
 }
 
 .workEq{
@@ -134,4 +161,8 @@ margin-left:2rem!important;
 		font-family: Open Sans !important;
 	width: 10rem;
     margin-left: 2.75rem !important;
+}
+
+.a{
+	width: 8rem !important;
 }

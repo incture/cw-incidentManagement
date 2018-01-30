@@ -1,3 +1,8 @@
+.sapUiPopupWithPadding .sapMDialogScrollCont {
+    padding: 4rem;
+    padding-top:0.5rem !important;
+}
+
 .AworkEq{
 	margin-left:1rem !important;
 }
